@@ -1,0 +1,295 @@
+:root {
+    --main: #111;
+    --font-border-color: #dab514;
+    --white: #fff;
+    --search-button-hover: #161616;
+    --gray: #bdbdbd;
+    --settingsBtn-hover: #af941a;
+    --emptyBox-color: #adadad;
+}
+* {
+    font-weight: 600;
+    cursor: default;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body {
+    overflow-x: hidden;
+}
+button {
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+}
+.top {
+    background-color: var(--main);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 18px 12px 12px 16px;
+    display: flex;
+}
+input[type="search"] {
+    background-color: var(--white);
+    border: 2px solid var(--main);
+    outline: var(--font-border-color);
+    height: 6vh;
+    width: 50vw;
+    box-sizing: border-box;
+    padding: 0 12px;
+    font-size: 16px;
+    cursor: text;
+    border-radius: 10px;
+}
+.tools {
+    display: flex;
+    gap: 12px;
+    animation: appearTools 0.8s linear forwards;
+    align-items: center;
+}
+.tools button {
+    position: relative;
+    left: 27px;
+    background-color: var(--main);
+    border: 1px solid var(--white);
+    color: var(--white);
+    height: 5.3vh;
+    width: 50px;
+    border-radius: 10px;
+}
+.tools button:hover {
+    background-color: var(--search-button-hover);
+}
+#settingsBtn {
+    color: var(--font-border-color);
+    cursor: pointer;
+}
+#settingsBtn:hover {
+    color: var(--settingsBtn-hover);
+}
+.container {
+    background-color: var(--main);
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    right: 0;
+    height: 39vh;
+    border-bottom-left-radius: 38px;
+    border-bottom-right-radius: 38px;
+    box-sizing: border-box;
+    padding: 20px 6vw;
+    overflow: hidden;
+}
+h1 {
+    color: var(--white);
+}
+#yellowColor {
+    color: var(--font-border-color);
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#explore {
+    background-color: var(--white);
+    color: var(--main);
+    border: none;
+    border-radius: 25px;
+    width: 160px;
+    height: 34px;
+    font-size: 17px;
+    margin-top: 4vh;
+    margin-right: 12px;
+}
+#explore:hover {
+    background-color: var(--gray);
+}
+.text {
+    animation: appear 0.8s linear forwards;
+    font-weight: 600;
+}
+nav {
+    background-color: var(--main);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#focus {
+    color: var(--font-border-color);
+}
+b:hover #focus {
+    color: var(--settingsBtn-hover);
+}
+b:hover i , b:hover span {
+    color: var(--gray);
+}
+i {
+    color: var(--white);
+    cursor: pointer;
+}
+a {
+    color: var(--gray);
+    cursor: pointer;
+    animation: appear 0.5s linear forwards;
+}
+.hiddenText {
+    color: var(--white);
+    cursor: pointer;
+}
+b {
+    display: flex;
+    gap: 10px;
+}
+.productsContianer {
+    width: 100vw;
+    margin-top: 46vh;
+    box-sizing: border-box;
+    padding-top: 50px;
+    justify-content: center;
+    padding-bottom: 90px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: appear 0.8s linear forwards;
+}
+.productCard {
+    position: relative;
+}
+.imgBox, .priceBox, .discriptionBox, .secondLine, .thirdLine {
+    background-color: var(--emptyBox-color);
+    animation: load 1s linear infinite forwards;
+}
+@keyframes appearTools {
+    from {
+        opacity: 0;
+        translate: 200px 0;
+    }
+}
+@keyframes appear {
+    from {
+        opacity: 0;
+        translate: 0 100px;
+    }
+}
+@keyframes load {
+    0% {
+        background: linear-gradient(to right bottom, #cecece, var(--gray), var(--gray), var(--gray), var(--gray));
+    }
+    20% {
+        background: linear-gradient(to right bottom, var(--gray), #cecece, var(--gray), var(--gray), var(--gray));
+    }
+    40% {
+        background: linear-gradient(to right bottom, var(--gray), var(--gray), #cecece, var(--gray), var(--gray));
+    }
+    60% {
+        background: linear-gradient(to right bottom, var(--gray), var(--gray), var(--gray), #cecece, var(--gray));
+    }
+    80% {
+        background: linear-gradient(to right bottom, var(--gray), var(--gray), var(--gray), var(--gray), #cecece);
+    }
+    100% {
+        background: linear-gradient(to right bottom, var(--gray));
+    }
+}
+@media (max-width: 700px) {
+    .hiddenText {
+        display: none;
+    }
+    nav {
+        gap: 18vw;
+    }
+    .productCard {
+        width: 180px;
+        border-radius: 12px;
+        border: 2px solid var(--gray);
+        height: 230px;
+        padding: 2px;
+    }
+    .productsContianer {
+        gap: 3vw;
+        flex-wrap: wrap;
+    }
+    .imgBox {
+        width: 100%;
+        height: 73%;
+        border-radius: 9px;
+    }
+    .priceBox {
+        width: 39%;
+        height: 8%;
+        border-radius: 9px;
+        margin-right: 7px;
+        margin-top: 7px;
+    }
+    .discriptionBox {
+        width: 92%;
+        height: 8%;
+        border-radius: 9px;
+        margin-right: 7px;
+        margin-top: 8px;
+    }
+}
+@media (min-width: 701px) {
+    span {
+        display: block;
+    }
+    nav {
+        gap: 16vw;
+    }
+    .productCard {
+        width: 94vw;
+        border-bottom: 2px solid var(--gray);
+        height: 200px;
+    }
+    .productsContianer {
+        flex-direction: column;
+    }
+    .imgBox {
+        width: 180px;
+        height: 90%;
+        border-radius: 9px;
+        position: absolute;
+        top: 5%;
+        right: 0;
+    }
+    .priceBox {
+        width: 90px;
+        height: 9%;
+        border-radius: 9px;
+        position: absolute;
+        top: 10%;
+        right: 190px;
+    }
+    .discriptionBox {
+        width: 70%;
+        height: 9%;
+        border-radius: 9px;
+        position: absolute;
+        top: 26%;
+        right: 190px;
+    }
+    .secondLine {
+        width: 60%;
+        height: 10%;
+        border-radius: 9px;
+        position: absolute;
+        top: 42%;
+        right: 190px;
+    }
+    .thirdLine {
+        width: 36%;
+        height: 10%;
+        border-radius: 9px;
+        position: absolute;
+        top: 58%;
+        right: 190px;
+    }
+}

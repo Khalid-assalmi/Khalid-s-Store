@@ -36,8 +36,8 @@ input[type="search"] {
     background-color: var(--white);
     border: none;
     outline: none;
-    max-width: 250px;
-    width: 30vw;
+    max-width: 300px;
+    width: 32vw;
     height: 5vh;
     box-sizing: border-box;
     padding: 0 12px 0 2px;
@@ -263,10 +263,10 @@ b {
         gap: 18vw;
     }
     .productCard {
-        width: 42vw;
+        width: 43vw;
         border-radius: 12px;
         border: 2px solid var(--gray);
-        height: 60vw;
+        height: 63vw;
         padding: 2px;
     }
     .productsContianer {

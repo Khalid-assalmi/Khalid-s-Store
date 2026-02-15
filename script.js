@@ -49,11 +49,11 @@ document.addEventListener("click", () => {
 });
 searchInp.addEventListener("focus", () =>  {
     searchBtn.style.display = "block";
-    searchInp.style.maxWidth = "550px";
+    searchInp.style.maxWidth = "500px";
     searchInp.style.width = "60vw";
     searchInp.style.padding = "0 12px 0 24px";
     searchInp.style.borderRadius = "12px";
-    searchInp.style.transition = "1.2s";
+    searchInp.style.transition = "0.8s";
     setInterval(() => {
         if (searchInp.value) {
             searchBtn.style.removeProperty("--main");
@@ -68,5 +68,5 @@ searchInp.addEventListener("blur", () =>  {
     searchInp.style.width = "";
     searchInp.style.padding = "";
     searchInp.style.borderRadius = "";
-    searchInp.style.transition = "0.7s";
+    searchInp.style.transition = "0.3s";
 });

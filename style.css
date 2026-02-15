@@ -5,7 +5,7 @@
     --search-button-hover: #161616;
     --gray: #cac9c9;
     --settingsBtn-hover: #af941a;
-    --emptyBox-color: #bdbbbb;
+    --emptyBox-color: #b9b9b9;
     --settingCard-hover: #f3f2f2;
 }
 * {
@@ -45,6 +45,7 @@ input[type="search"] {
     cursor: text;
     border-radius: 25px;
     z-index: 0;
+    transition: 0.3s;
 }
 .tools {
     display: flex;

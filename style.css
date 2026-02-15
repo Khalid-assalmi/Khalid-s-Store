@@ -1,16 +1,18 @@
 :root {
     --main: #111;
-    --font-border-color: #dab514;
+    --font-color: #dab514;
     --white: #fff;
     --search-button-hover: #161616;
-    --gray: #bdbdbd;
+    --gray: #cac9c9;
     --settingsBtn-hover: #af941a;
-    --emptyBox-color: #adadad;
+    --emptyBox-color: #bdbbbb;
+    --settingCard-hover: #f5f3f3;
 }
 * {
     font-weight: 600;
     cursor: default;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    z-index: 1000;
 }
 body {
     overflow-x: hidden;
@@ -32,79 +34,71 @@ a {
 }
 input[type="search"] {
     background-color: var(--white);
-    border: 2px solid var(--main);
-    outline: var(--font-border-color);
-    height: 6vh;
-    width: 50vw;
+    border: none;
+    outline: none;
+    max-width: 240px;
+    height: 5vh;
     box-sizing: border-box;
-    padding: 0 12px;
+    padding: 0 12px 0 2px;
     font-size: 16px;
     cursor: text;
-    border-radius: 10px;
+    border-radius: 25px;
+    z-index: 0;
 }
 .tools {
     display: flex;
     gap: 12px;
-    animation: appearTools 0.8s linear forwards;
+    animation: appearTools 0.8s linear 0.2s forwards;
     align-items: center;
+    height: 5vh;
 }
 .tools button {
     position: relative;
-    left: 27px;
+    left: 36px;
     background-color: var(--main);
-    border: 1px solid var(--white);
+    border: 2px solid var(--white);
     color: var(--white);
-    height: 5.3vh;
-    width: 50px;
-    border-radius: 10px;
+    height: 5vh;
+    width: 5vh;
+    border-radius: 50%;
+    font-size: 12px;
+    display: none;
+    transition: 0.2s;
 }
 .tools button:hover {
     background-color: var(--search-button-hover);
 }
-#settingsBtn {
-    color: var(--font-border-color);
+#settingsBtnIcon {
+    color: var(--font-color);
     cursor: pointer;
 }
-#settingsBtn:hover {
+#settingsBtnIcon:hover {
     color: var(--settingsBtn-hover);
 }
 .container {
     background-color: var(--main);
+    margin-top: 6vh;
     position: absolute;
-    top: 10vh;
     left: 0;
     right: 0;
-    height: 39vh;
-    border-bottom-left-radius: 38px;
-    border-bottom-right-radius: 38px;
+    height: 26vh;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     box-sizing: border-box;
     padding: 20px 6vw;
     overflow: hidden;
+    z-index: 1;
 }
 h1 {
     color: var(--white);
 }
 #yellowColor {
-    color: var(--font-border-color);
+    color: var(--font-color);
     font-style: italic;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-#explore {
-    background-color: var(--white);
-    color: var(--main);
-    border: none;
-    border-radius: 25px;
-    width: 160px;
-    height: 34px;
-    font-size: 17px;
-    margin-top: 4vh;
-    margin-right: 12px;
-}
-#explore:hover {
-    background-color: var(--gray);
-}
-.text {
-    animation: appear 0.8s linear forwards;
+text {
+    animation: appear 0.8s linear 0.2s forwards;
     font-weight: 600;
 }
 nav {
@@ -120,7 +114,7 @@ nav {
     align-items: center;
 }
 #focus {
-    color: var(--font-border-color);
+    color: var(--font-color);
 }
 b:hover #focus {
     color: var(--settingsBtn-hover);
@@ -135,7 +129,7 @@ i {
 a {
     color: var(--gray);
     cursor: pointer;
-    animation: appear 0.5s linear forwards;
+    animation: appear 0.5s linear 0.2s forwards;
 }
 .hiddenText {
     color: var(--white);
@@ -147,7 +141,7 @@ b {
 }
 .productsContianer {
     width: 100vw;
-    margin-top: 46vh;
+    margin-top: 30vh;
     box-sizing: border-box;
     padding-top: 50px;
     justify-content: center;
@@ -159,13 +153,57 @@ b {
     justify-content: center;
     align-items: center;
     animation: appear 0.8s linear forwards;
+    z-index: 1;
 }
 .productCard {
     position: relative;
 }
 .imgBox, .priceBox, .discriptionBox, .secondLine, .thirdLine {
     background-color: var(--emptyBox-color);
-    animation: load 1s linear infinite forwards;
+    animation: load 1s linear 0.2s infinite forwards;
+}
+.settingsBox {
+    position: absolute;
+    top: 95%;
+    right: 95%;
+    background-color: var(--white);
+    animation: appearSettingsBox 0.2s linear forwards;
+    border-radius: 16px;
+    width: 180px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 12px #000;
+    overflow: hidden;
+    padding: 0 16px;
+}
+.hide {
+    animation: hideSettingsBox 1s linear reverse forwards;
+}
+.settingCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 25%;
+    cursor: pointer;
+    padding: 0 6px;
+}
+.settingCard a {
+    color: var(--main);
+    animation: none;
+}
+#paymentCard {
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+.settingCard:hover {
+    background-color: var(--settingCard-hover);
+}
+.settingCard i {
+    color: var(--main)
 }
 @keyframes appearTools {
     from {
@@ -179,21 +217,37 @@ b {
         translate: 0 100px;
     }
 }
+@keyframes appearSettingsBox {
+    from {
+        translate: 16px -16px;
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+}
+@keyframes hideSettingsBox {
+    to {
+        translate: 16px -16px;
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+}
 @keyframes load {
     0% {
-        background: linear-gradient(to right bottom, #cecece, var(--gray), var(--gray), var(--gray), var(--gray));
+        background: linear-gradient(to right bottom, #d3d3d3, var(--gray), var(--gray), var(--gray), var(--gray));
     }
     20% {
-        background: linear-gradient(to right bottom, var(--gray), #cecece, var(--gray), var(--gray), var(--gray));
+        background: linear-gradient(to right bottom, var(--gray), #d3d3d3, var(--gray), var(--gray), var(--gray));
     }
     40% {
-        background: linear-gradient(to right bottom, var(--gray), var(--gray), #cecece, var(--gray), var(--gray));
+        background: linear-gradient(to right bottom, var(--gray), var(--gray), #d3d3d3, var(--gray), var(--gray));
     }
     60% {
-        background: linear-gradient(to right bottom, var(--gray), var(--gray), var(--gray), #cecece, var(--gray));
+        background: linear-gradient(to right bottom, var(--gray), var(--gray), var(--gray), #d3d3d3, var(--gray));
     }
     80% {
-        background: linear-gradient(to right bottom, var(--gray), var(--gray), var(--gray), var(--gray), #cecece);
+        background: linear-gradient(to right bottom, var(--gray), var(--gray), var(--gray), var(--gray), #d3d3d3);
     }
     100% {
         background: linear-gradient(to right bottom, var(--gray));
@@ -207,20 +261,23 @@ b {
         gap: 18vw;
     }
     .productCard {
-        width: 180px;
+        width: 38vw;
         border-radius: 12px;
         border: 2px solid var(--gray);
-        height: 230px;
+        height: 52vw;
         padding: 2px;
     }
     .productsContianer {
-        gap: 3vw;
+        gap: 4vw;
         flex-wrap: wrap;
+        justify-content: flex-start;
+        padding-right: 6vw;
     }
     .imgBox {
         width: 100%;
         height: 73%;
-        border-radius: 9px;
+        border-top-right-radius: 9px;
+        border-top-left-radius: 9px;
     }
     .priceBox {
         width: 39%;

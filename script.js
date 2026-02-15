@@ -47,11 +47,11 @@ document.addEventListener("click", () => {
     }, 40);
     turn = false;
 });
-searchInp.addEventListener("focus", () =>  {
+function appearAndHideSearchInput() {
     searchBtn.style.display = "block";
     searchInp.style.maxWidth = "500px";
     searchInp.style.width = "60vw";
-    searchInp.style.padding = "0 12px 0 24px";
+    searchInp.style.padding = "0 12px 0 30px";
     searchInp.style.borderRadius = "12px";
     searchInp.style.transition = "0.8s";
     setInterval(() => {
@@ -61,7 +61,9 @@ searchInp.addEventListener("focus", () =>  {
             searchBtn.style.setProperty("--main", "#3b3b3b");
         }
     });
-});
+}
+searchInp.addEventListener("focus", appearAndHideSearchInput);
+searchInp.addEventListener("input", appearAndHideSearchInput);
 searchInp.addEventListener("blur", () =>  {
     searchBtn.style.display = "";
     searchInp.style.maxWidth = "";

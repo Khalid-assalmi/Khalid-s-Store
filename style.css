@@ -36,8 +36,8 @@ input[type="search"] {
     background-color: var(--white);
     border: none;
     outline: none;
-    max-width: 280px;
-    width: 36vw;
+    max-width: 290px;
+    width: 37vw;
     height: 5vh;
     box-sizing: border-box;
     padding: 0 12px 0 2px;

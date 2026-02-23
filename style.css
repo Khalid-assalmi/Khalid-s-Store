@@ -12,7 +12,7 @@
     font-weight: 600;
     cursor: default;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    z-index: 1000;
+    z-index: 3;
 }
 body {
     overflow-x: hidden;
@@ -37,15 +37,15 @@ input[type="search"] {
     border: none;
     outline: none;
     max-width: 280px;
-    width: 45vw;
+    width: 46vw;
     height: 5vh;
     box-sizing: border-box;
-    padding: 0 12px 0 2px;
+    padding: 0 12px 0 8px;
     font-size: 16px;
     cursor: text;
     border-radius: 25px;
     z-index: 0;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 .tools {
     display: flex;
@@ -64,11 +64,20 @@ input[type="search"] {
     width: 5vh;
     border-radius: 50%;
     font-size: 12px;
-    display: none;
-    transition: 0.2s;
+    opacity: 0;
+    transition: 0.3s;
 }
 .tools button:hover {
     background-color: var(--search-button-hover);
+}
+#searchBackBtn {
+    display: block;
+    position: relative;
+    right: 16px;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    color: var(--main);
 }
 #settingsBtnIcon {
     color: var(--font-color);
@@ -99,8 +108,8 @@ h1 {
     font-style: italic;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-text {
-    animation: appear 0.8s linear 0.2s forwards;
+.text {
+    animation: appear 0.8s linear forwards;
     font-weight: 600;
 }
 nav {
@@ -160,10 +169,72 @@ b {
 }
 .productCard {
     position: relative;
+    line-height: 4.7vw;
+    overflow: hidden;
+    transition: 0.4s;
 }
-.imgBox, .priceBox, .discriptionBox, .secondLine, .thirdLine {
+.productCard, .productCard img, .productCard .priceBox, .productCard .descriptionBox {
+    cursor: pointer;
+}
+.searchContianer {
+    width: 100vw;
+    position: absolute;
+    top: 8vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    animation: appear 0.3s linear forwards;
+    z-index: 1;
+    box-sizing: border-box;
+    padding-top: 50px;
+    padding-bottom: 90px;
+    padding-right: 12px;
+    background-color: var(--white);
+    overflow: auto;
+    display: none;
+}
+.notFoundMassege, .loadingBox {
+    color: var(--main);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.notFoundMassege #searchIcon {
+    display: block;
+    color: var(--main);
+    font-size: 60px;
+    cursor: default;
+}
+.notFoundMassege span, .loadingBox span {
+    margin-top: 60px;
+    font-size: 23px;
+}
+.loadingBox .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid var(--gray);
+    border-top: 3px solid var(--main);
+    animation: rotate 0.5s linear infinite forwards;
+}
+.imgBox {
     background-color: var(--emptyBox-color);
-    animation: load 1s linear 0.2s infinite forwards;
+    animation: load 1s linear 1s infinite forwards;
+}
+.priceBox {
+    font-size: 21px;
+    display: flex;
+    gap: 6px;
+}
+.descriptionBox {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .settingsBox {
     position: absolute;
@@ -220,6 +291,12 @@ b {
         translate: 0 100px;
     }
 }
+@keyframes hide {
+    to {
+        opacity: 0;
+        translate: 0 100px;
+    }
+}
 @keyframes appearSettingsBox {
     from {
         translate: 16px -16px;
@@ -256,7 +333,12 @@ b {
         background: linear-gradient(to right bottom, var(--gray));
     }
 }
-@media (max-width: 700px) {
+@keyframes rotate {
+    to {
+        rotate: 360deg;
+    }
+}
+@media (max-width: 680px) {
     .hiddenText {
         display: none;
     }
@@ -270,8 +352,8 @@ b {
         height: 63vw;
         padding: 2px;
     }
-    .productsContianer {
-        gap: 4vw;
+    .productsContianer, .searchContianer {
+        gap: 4.3vw;
         flex-wrap: wrap;
         justify-content: flex-start;
     }
@@ -282,21 +364,23 @@ b {
         border-top-left-radius: 9px;
     }
     .priceBox {
-        width: 39%;
-        height: 8%;
         border-radius: 9px;
         margin-right: 7px;
         margin-top: 7px;
     }
-    .discriptionBox {
-        width: 92%;
-        height: 8%;
+    .descriptionBox {
         border-radius: 9px;
         margin-right: 7px;
         margin-top: 8px;
     }
+    img {
+        width: 100%;
+        height: 100%;
+        border-top-right-radius: 9px;
+        border-top-left-radius: 9px;
+    }
 }
-@media (min-width: 701px) {
+@media (min-width: 681px) {
     span {
         display: block;
     }
@@ -304,12 +388,14 @@ b {
         gap: 16vw;
     }
     .productCard {
-        width: 94vw;
-        border-bottom: 2px solid var(--gray);
+        width: 90vw;
         height: 200px;
+        box-shadow: 0 0 6px #000;
+        border-radius: 16px;
     }
-    .productsContianer {
+    .productsContianer, .searchContianer {
         flex-direction: column;
+        gap: 22px;
     }
     .imgBox {
         width: 180px;
@@ -317,38 +403,24 @@ b {
         border-radius: 9px;
         position: absolute;
         top: 5%;
-        right: 0;
+        right: 13px;
     }
     .priceBox {
-        width: 90px;
-        height: 9%;
         border-radius: 9px;
         position: absolute;
         top: 10%;
-        right: 190px;
+        right: 213px;
     }
-    .discriptionBox {
-        width: 70%;
-        height: 9%;
+    .descriptionBox {
         border-radius: 9px;
         position: absolute;
-        top: 26%;
-        right: 190px;
+        top: 29%;
+        right: 213px;
+        font-size: 17px;
     }
-    .secondLine {
-        width: 60%;
-        height: 10%;
+    img {
+        width: 100%;
+        height: 100%;
         border-radius: 9px;
-        position: absolute;
-        top: 42%;
-        right: 190px;
-    }
-    .thirdLine {
-        width: 36%;
-        height: 10%;
-        border-radius: 9px;
-        position: absolute;
-        top: 58%;
-        right: 190px;
     }
 }

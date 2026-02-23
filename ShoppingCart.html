@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khalid's Store</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="datas.style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body dir="rtl">
@@ -12,26 +13,21 @@
         <div class="logo"></div>
         <div class="tools">
             <a id="settingsBtn"><i class="fa fa-cog" id="settingsBtnIcon"></i></a>
-            <input type="search" id="searchInput" placeholder="البحث في المنتجات ...">
+            <input type="search" id="searchInput" placeholder="البحث في السلة ...">
             <button id="searchButton"><i class="fa fa-search"></i></button>
         </div>
     </div>
-    <div class="container">
-        <div class="text">
-            <h1>مرحباً بك في</h1>
-            <h1 id="yellowColor">Khalid's Store</h1>
-        </div>
+    <div class="productsContainerInCart"></div>
+    <div class="total" id="totalClass">
+        <h3>الإجمالي: <span id="total">0</span> ريال</h3>
+        <button>دفع</button>
     </div>
-    <section id="products">
-        <div class="productsContianer"></div>
-        <div class="searchContianer"></div>
-    </section>
     <nav>
-        <a href="index.html" title="الرئيسية"><b><i class="fa fa-home" id="focus"></i><span id="focus" class="hiddenText">الرئيسية</span></b></a>
+        <a href="index.html" title="الرئيسية"><b><i class="fa fa-home"></i><span class="hiddenText">الرئيسية</span></b></a>
         <a href="#" title="العروض"><b><i class="fa fa-tag" style="rotate: 270deg;"></i><span class="hiddenText">العروض</span></b></a>
-        <a href="ShoppingCart.html" title="السلة"><b><i class="fa fa-shopping-cart"></i><span class="hiddenText">السلة</span></b></a>
+        <a href="ShoppingCart.html" title="السلة"><b><i class="fa fa-shopping-cart" id="focus"></i><span id="focus" class="hiddenText">السلة</span></b></a>
         <a href="#" title="أنا"><b><i class="fa fa-user"></i><span class="hiddenText">أنا</span></b></a>
     </nav>
-    <script src="script.js"></script>
+    <script src="ShoppingCart.js"></script>
 </body>
 </html>

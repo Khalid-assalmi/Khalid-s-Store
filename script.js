@@ -154,6 +154,6 @@ function productPage(indexOfProduct) {
 }
 if (!searchContianer) {
     document.querySelector(".productImage").innerHTML = `<img class="img" src="${products[index].img}">`;
-    document.querySelector(".price").innerHTML = `<div>${products[index].price}</div><div class="coin">ريال</div>`
+    document.querySelector(".price").innerHTML = `<div>${products[index].price}</div><div class="coin"></span><span id="cionIcon">&#xFDFC;</span></div>`
     document.getElementById("productDes").innerHTML = products[index].des;
 }

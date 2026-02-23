@@ -121,7 +121,7 @@ function displayProductsInCart() {
             <div class="productImg"><img src="${cart[i].img}"></div>
             <div class="productInfo">
                 <h3>${cart[i].des}</h3>
-                <p>${cart[i].price} ريال</p>
+                <p>${cart[i].price}</span><span id="cionIcon">&#xFDFC;</span></p>
             </div>
         </div>
         `;

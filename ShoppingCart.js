@@ -125,6 +125,7 @@ function displayProductsInCart() {
             </div>
         </div>
         `;
+        console.log(cart[i].img)
     }
 }
 function productPage(indexOfProduct) {

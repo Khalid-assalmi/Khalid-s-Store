@@ -189,7 +189,6 @@ b {
     align-items: center;
     animation: appear 0.8s linear forwards;
     z-index: 1;
-    padding-right: 12px;
 }
 .productCard {
     position: relative;
@@ -369,10 +368,10 @@ b {
         gap: 18vw;
     }
     .productCard {
-        width: 43vw;
+        width: 44vw;
         border-radius: 12px;
         border: 2px solid var(--gray);
-        height: 68vw;
+        height: 69vw;
         padding: 2px;
     }
     .productsContianer, .searchContianer {
@@ -396,7 +395,6 @@ b {
     .descriptionBox {
         border-radius: 9px;
         margin-right: 7px;
-        margin-top: 5px;
     }
     img {
         width: 100%;

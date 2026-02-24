@@ -1,6 +1,5 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let addBtn = document.getElementById("addToCart");
-let signInBtn = document.querySelector(".signInBtn");
 let productsContianerInCart = document.querySelector(".productsContainerInCart");
 if (addBtn) {
     addBtn.addEventListener("click", function() {
@@ -63,44 +62,6 @@ if (addBtn) {
         }, 40);
             turn = false;
         });
-        function appearAndHideSearchInput() {
-            searchBtn.style.opacity = "1";
-            searchInp.style.maxWidth = "500px";
-            searchInp.style.width = "60vw";
-            searchInp.style.padding = "0 12px 0 30px";
-            searchInp.style.borderRadius = "12px";
-            signInBtn.style.opacity = "0";
-            setInterval(() => {
-                if (searchInp.value) {
-                    searchBtn.style.removeProperty("--main");
-                } else {
-                    searchBtn.style.setProperty("--main", "#474747");
-                }
-            });
-        }
-        searchInp.addEventListener("focus", appearAndHideSearchInput);
-        searchInp.addEventListener("input", () => {
-            if (searchInp.value.trim()) {
-                searchContianer.style.display = "flex";
-                document.body.style.overflow = "hidden";
-                searchContianer.style.animationName = "";
-                search();
-            } else if (!searchInp.value.trim()) {
-                searchContianer.style.animationName = "hide";
-                setTimeout(() => {
-                    searchContianer.style.display = "";
-                    document.body.style.overflow = "";
-                }, 300);
-            }
-        });
-        searchInp.addEventListener("blur", () =>  {
-            searchBtn.style.opacity = "";
-            searchInp.style.maxWidth = "";
-            searchInp.style.width = "";
-            searchInp.style.padding = "";
-            searchInp.style.borderRadius = "";
-            signInBtn.style.opacity = "";
-        });
     }
     let totalClass = document.querySelector("#totalClass");
     let totalConainer = document.querySelector("#total");
@@ -130,12 +91,5 @@ function displayProductsInCart() {
             </div>
         </div>
         `;
-        signInBtn.addEventListener("click", () => {
-            window.location.href = "signIn.html";
-        });
     }
-}
-function productPage(indexOfProduct) {
-    window.location.href = "product.html";
-    sessionStorage.setItem("index", indexOfProduct);
 }

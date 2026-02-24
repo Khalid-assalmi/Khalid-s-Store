@@ -47,6 +47,7 @@ body {
     align-items: center;
 }
 h2 {
+    color: var(--box-border-color);
     margin-bottom: 50px;
 }
 .inputBox {
@@ -78,7 +79,7 @@ input[type="submit"] {
     justify-content: center;
     justify-self: center;
     margin-top: 50px;
-    height: 6vh;
+    height: 6.5vh;
 }
 input[type="submit"]:hover {
     background-color: var(--signInBtn-hover-bg);

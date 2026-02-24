@@ -160,6 +160,7 @@ body {
     padding: 5px 14px;
     transition: 0.3s;
     display: flex;
+    align-items: center;
     gap: 7px;
 }
 .total button:hover {

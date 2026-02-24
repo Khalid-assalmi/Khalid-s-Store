@@ -390,11 +390,13 @@ b {
         border-radius: 9px;
         margin-right: 7px;
         margin-top: 7px;
+        display: flex;
+        align-items: center;
     }
     .descriptionBox {
         border-radius: 9px;
         margin-right: 7px;
-        margin-top: 8px;
+        margin-top: 5px;
     }
     img {
         width: 100%;

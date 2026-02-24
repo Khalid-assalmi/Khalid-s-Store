@@ -2,6 +2,7 @@ let settingsBtn = document.getElementById("settingsBtn");
 let searchInp = document.getElementById("searchInput");
 let searchBtn = document.getElementById("searchButton");
 let productsContianer = document.querySelector(".productsContianer");
+let signInBtn = document.querySelector(".signInBtn");
 let div = document.createElement("div");
 div.className = "settingsBox";
 let settingCard = document.createElement("div");
@@ -55,6 +56,7 @@ if (searchInp) {
         searchInp.style.width = "60vw";
         searchInp.style.padding = "0 12px 0 30px";
         searchInp.style.borderRadius = "12px";
+        signInBtn.style.opacity = "0";
         setInterval(() => {
             if (searchInp.value) {
                 searchBtn.style.removeProperty("--main");
@@ -85,6 +87,7 @@ if (searchInp) {
         searchInp.style.width = "";
         searchInp.style.padding = "";
         searchInp.style.borderRadius = "";
+        signInBtn.style.opacity = "";
     });
 }
 let products = JSON.parse(localStorage.getItem("products")) || [];
@@ -157,7 +160,6 @@ if (!searchContianer) {
     document.querySelector(".price").innerHTML = `<div>${products[index].price}</div><div class="coin"></span><span id="cionIcon">&#xFDFC;</span></div>`
     document.getElementById("productDes").innerHTML = products[index].des;
 }
-let signInBtn = document.querySelector(".signInBtn");
 if (signInBtn) {
     signInBtn.addEventListener("click", () => {
         window.location.href = "signIn.html";

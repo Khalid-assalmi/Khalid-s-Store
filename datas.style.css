@@ -119,18 +119,21 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 17px;
 }
 .productInfo p {
     position: absolute;
     top: 8px;
-    font-size: 20px;
+    font-size: 22px;
+    display: flex;
+    gap: 5px;
 }
 .total {
     position: fixed;
     bottom: 50px;
     right: 0;
     left: 0;
-    height: 55px;
+    height: 60px;
     background-color: var(--white);
     border-top: 2px solid var(--emptyBox-color);
     display: flex;
@@ -141,7 +144,9 @@ body {
     border-radius: 18px 18px 0 0;
 }
 .total h3 {
+    height: 100%;
     display: flex;
+    align-items: center;
     gap: 5px;
     color: var(--main);
 }
@@ -151,9 +156,11 @@ body {
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    font-size: 17px;
-    padding: 5px 21px;
+    font-size: 16px;
+    padding: 5px 14px;
     transition: 0.3s;
+    display: flex;
+    gap: 7px;
 }
 .total button:hover {
     background-color: var(--addBtn-hover-bg);

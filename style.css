@@ -178,7 +178,7 @@ b {
 }
 .searchContianer {
     width: 100vw;
-    position: absolute;
+    position: fixed;
     top: 8vh;
     left: 0;
     right: 0;

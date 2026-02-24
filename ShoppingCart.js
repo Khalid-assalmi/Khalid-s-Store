@@ -106,7 +106,7 @@ if (addBtn) {
     for (let i = 0; i < cart.length; i++) {
         totalPrice += cart[i].price;
     }
-    totalConainer.textContent = totalPrice;
+    totalConainer.textContent = Math.floor(totalPrice);
     displayProductsInCart();
     if (cart == "") {
         totalClass.style.display = "none";
@@ -130,4 +130,10 @@ function displayProductsInCart() {
 function productPage(indexOfProduct) {
     window.location.href = "product.html";
     sessionStorage.setItem("index", indexOfProduct);
+}
+let index = sessionStorage.getItem("index");
+if (productsContianerInCart) {
+    document.querySelector(".productImage").innerHTML = `<img class="img" src="${products[index].img}">`;
+    document.querySelector(".price").innerHTML = `<div>${products[index].price}</div><div class="coin"></span><span id="cionIcon">&#xFDFC;</span></div>`
+    document.getElementById("productDes").innerHTML = products[index].des;
 }

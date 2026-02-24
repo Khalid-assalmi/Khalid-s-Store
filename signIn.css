@@ -1,0 +1,89 @@
+:root {
+    --main: #111;
+    --box-border-color: #5c4b02;
+    --white: #fff;
+    --signInBtn-bg: rgb(235, 11, 11);
+    --signInBtn-hover-bg: rgb(247, 13, 13);
+    --input-border: #5c5c5c;
+    --backBtn-bg: #f0f0f07a;
+    --backBtn-hover-bg: #e0e0e096;
+}
+body {
+    background-color: var(--main);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: default;
+    font-weight: 600;
+}
+.back i {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--backBtn-bg);
+    color: var(--main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+.back i:hover {
+    background-color: var(--backBtn-hover-bg);
+}
+.box {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 38px;
+    box-shadow: 0 0 30px var(--box-border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h2 {
+    margin-bottom: 50px;
+}
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+input {
+    width: 52vw;
+    max-width: 350px;
+    height: 4.4vh;
+    max-height: 30px;
+    border-radius: 8px;
+    border: 2px solid var(--input-border);
+    padding: 0 12px;
+    font-weight: 600;
+    font-size: 15px;
+}
+input[type="submit"] {
+    background-color: var(--signInBtn-bg);
+    color: var(--white);
+    font-size: 15px;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: 0.4s;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    margin-top: 50px;
+    height: 5.6vh;
+    max-height: 36px;
+}
+input[type="submit"]:hover {
+    background-color: var(--signInBtn-hover-bg);
+    border-radius: 8px;
+    box-shadow: 0 0 2px #000;
+}

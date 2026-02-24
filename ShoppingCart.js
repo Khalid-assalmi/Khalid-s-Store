@@ -110,11 +110,14 @@ if (addBtn) {
     displayProductsInCart();
     if (cart == "") {
         totalClass.style.display = "none";
+        searchInp.style.display = "none";
     } else {
         totalClass.style.display = "";
+        searchInp.style.display = "";
     }
 }
 function displayProductsInCart() {
+    productsContianerInCart.innerHTML = "";
     for (let i = 0; i < cart.length; i++) {
         productsContianerInCart.innerHTML += `
         <div class="productInCartCard" onclick="productPage(${i})">
@@ -125,7 +128,10 @@ function displayProductsInCart() {
             </div>
         </div>
         `;
-        console.log(cart[i].img)
+        let signInBtn = document.querySelector(".signInBtn");
+        signInBtn.addEventListener("click", () => {
+            window.location.href = "signIn.html";
+        });
     }
 }
 function productPage(indexOfProduct) {

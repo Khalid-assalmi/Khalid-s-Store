@@ -157,3 +157,9 @@ if (!searchContianer) {
     document.querySelector(".price").innerHTML = `<div>${products[index].price}</div><div class="coin"></span><span id="cionIcon">&#xFDFC;</span></div>`
     document.getElementById("productDes").innerHTML = products[index].des;
 }
+let signInBtn = document.querySelector(".signInBtn");
+if (signInBtn) {
+    signInBtn.addEventListener("click", () => {
+        window.location.href = "signIn.html";
+    });
+}

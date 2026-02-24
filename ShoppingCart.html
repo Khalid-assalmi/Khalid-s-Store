@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khalid's Store</title>
+    <title>Khalid's Store/Shopping Cart</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="datas.style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body dir="rtl">
     <div class="top">
-        <div class="logo"></div>
+        <button class="signInBtn">تسجيل الدخول</button>
         <div class="tools">
             <a id="settingsBtn"><i class="fa fa-cog" id="settingsBtnIcon"></i></a>
             <input type="search" id="searchInput" placeholder="البحث في السلة ...">
             <button id="searchButton"><i class="fa fa-search"></i></button>
         </div>
     </div>
-    <div class="productsContainerInCart"></div>
+    <div class="productsContainerInCart">
+        <div class="empty">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <h2>لا توجد منتجات في السلة</h2>
+        </div>
+    </div>
     <div class="total" id="totalClass">
         <h3>الإجمالي: <span id="total">0</span><span id="cionIcon">&#xFDFC;</span></h3>
         <button>دفع <i class="fa-regular fa-credit-card"></i></button>

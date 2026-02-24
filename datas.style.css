@@ -88,6 +88,18 @@ body {
     gap: 18px;
     overflow-y: auto;
 }
+.empty {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.empty i {
+    font-size: 76px;
+    color: var(--emptyBox-color);
+}
 .productInCartCard {
     width: 95vw;
     max-width: 700px;
@@ -125,7 +137,9 @@ body {
     position: absolute;
     top: 8px;
     font-size: 22px;
+    height: 26x;
     display: flex;
+    align-items: center;
     gap: 5px;
 }
 .total {

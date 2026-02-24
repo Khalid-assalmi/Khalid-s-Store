@@ -7,6 +7,8 @@
     --settingsBtn-hover: #af941a;
     --emptyBox-color: #b9b9b9;
     --settingCard-hover: #f0f0f0;
+    --signInBtn-bg: rgb(235, 11, 11);
+    --signInBtn-hover-bg: rgb(255, 20, 20);
 }
 * {
     font-weight: 600;
@@ -39,6 +41,7 @@ input[type="search"] {
     max-width: 280px;
     width: 46vw;
     height: 5vh;
+    max-height: 32px;
     box-sizing: border-box;
     padding: 0 12px 0 8px;
     font-size: 16px;
@@ -85,6 +88,28 @@ input[type="search"] {
 }
 #settingsBtnIcon:hover {
     color: var(--settingsBtn-hover);
+}
+.signInBtn {
+    color: var(--white);
+    font-size: 15px;
+    background-color: var(--signInBtn-bg);
+    display: flex;
+    justify-content: center;
+    height: 5vh;
+    max-height: 32px;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 25px;
+    position: fixed;
+    left: 16px;
+    transition: 0.4s;
+    cursor: pointer;
+    border: none;
+}
+.signInBtn:hover {
+    background-color: var(--signInBtn-hover-bg);
+    border-radius: 8px;
+    box-shadow: 0 0 12px #000;
 }
 .container {
     background-color: var(--main);

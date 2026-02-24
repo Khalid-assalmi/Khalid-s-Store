@@ -1,5 +1,6 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let addBtn = document.getElementById("addToCart");
+let signInBtn = document.querySelector(".signInBtn");
 let productsContianerInCart = document.querySelector(".productsContainerInCart");
 if (addBtn) {
     addBtn.addEventListener("click", function() {
@@ -68,6 +69,7 @@ if (addBtn) {
             searchInp.style.width = "60vw";
             searchInp.style.padding = "0 12px 0 30px";
             searchInp.style.borderRadius = "12px";
+            signInBtn.style.opacity = "0";
             setInterval(() => {
                 if (searchInp.value) {
                     searchBtn.style.removeProperty("--main");
@@ -78,7 +80,6 @@ if (addBtn) {
         }
         searchInp.addEventListener("focus", appearAndHideSearchInput);
         searchInp.addEventListener("input", () => {
-            appearAndHideSearchInput();
             if (searchInp.value.trim()) {
                 searchContianer.style.display = "flex";
                 document.body.style.overflow = "hidden";
@@ -98,6 +99,7 @@ if (addBtn) {
             searchInp.style.width = "";
             searchInp.style.padding = "";
             searchInp.style.borderRadius = "";
+            signInBtn.style.opacity = "";
         });
     }
     let totalClass = document.querySelector("#totalClass");
@@ -106,7 +108,7 @@ if (addBtn) {
     for (let i = 0; i < cart.length; i++) {
         totalPrice += cart[i].price;
     }
-    totalConainer.textContent = Math.floor(totalPrice);
+    totalConainer.textContent = totalPrice;
     displayProductsInCart();
     if (cart == "") {
         totalClass.style.display = "none";
@@ -128,7 +130,6 @@ function displayProductsInCart() {
             </div>
         </div>
         `;
-        let signInBtn = document.querySelector(".signInBtn");
         signInBtn.addEventListener("click", () => {
             window.location.href = "signIn.html";
         });

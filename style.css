@@ -193,7 +193,6 @@ b {
 }
 .productCard {
     position: relative;
-    line-height: 4.7vw;
     overflow: hidden;
     transition: 0.4s;
 }
@@ -373,7 +372,7 @@ b {
         width: 43vw;
         border-radius: 12px;
         border: 2px solid var(--gray);
-        height: 63vw;
+        height: 68vw;
         padding: 2px;
     }
     .productsContianer, .searchContianer {

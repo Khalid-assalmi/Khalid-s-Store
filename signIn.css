@@ -1,6 +1,6 @@
 :root {
     --main: #111;
-    --box-border-color: #5c4b02;
+    --box-border-color: #dab514;
     --white: #fff;
     --signInBtn-bg: rgb(235, 11, 11);
     --signInBtn-hover-bg: rgb(247, 13, 13);
@@ -40,7 +40,7 @@ body {
     background-color: var(--white);
     border-radius: 12px;
     padding: 38px;
-    box-shadow: 0 0 30px var(--box-border-color);
+    box-shadow: 0 0 36px var(--box-border-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,7 +58,6 @@ input {
     width: 52vw;
     max-width: 350px;
     height: 4.4vh;
-    max-height: 30px;
     border-radius: 8px;
     border: 2px solid var(--input-border);
     padding: 0 12px;
@@ -79,8 +78,7 @@ input[type="submit"] {
     justify-content: center;
     justify-self: center;
     margin-top: 50px;
-    height: 5.6vh;
-    max-height: 36px;
+    height: 6vh;
 }
 input[type="submit"]:hover {
     background-color: var(--signInBtn-hover-bg);

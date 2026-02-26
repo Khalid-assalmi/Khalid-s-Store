@@ -113,6 +113,7 @@ body {
     position: relative;
     border-radius: 16px;
     overflow: hidden;
+    cursor: pointer;
 }
 .productImg img {
     position: absolute;
@@ -120,6 +121,7 @@ body {
     height: 100%;
     top: 0;
     border-radius: 16px;
+    cursor: pointer;
 }
 .productInfo {
     margin-right: 140px;
@@ -132,6 +134,7 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 17px;
+    cursor: pointer;
 }
 .productInfo p {
     position: absolute;
@@ -141,6 +144,27 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
+    cursor: pointer;
+}
+.productInfo p span {
+    cursor: pointer;
+}
+.count {
+    position: absolute;
+    top: 32px;
+    left: 15px;
+    background-color: var(--white);
+    border: 1px solid var(--main);
+    border-radius: 21px;
+    padding: 2px 3px;
+    display: flex;
+    gap: 3px;
+}
+.count button {
+    border-radius: 19px;
+    border: none;
+    background-color: var(--white);
+    font-size: 16px;
 }
 .total {
     position: fixed;

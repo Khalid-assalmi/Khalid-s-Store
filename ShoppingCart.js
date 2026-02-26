@@ -1,5 +1,8 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let addBtn = document.getElementById("addToCart");
+let totalClass = document.querySelector("#totalClass");
+let totalConainer = document.querySelector("#total");
+let totalPrice = 0;
 let productsContianerInCart = document.querySelector(".productsContainerInCart");
 if (addBtn) {
     addBtn.addEventListener("click", function() {
@@ -63,13 +66,10 @@ if (addBtn) {
             turn = false;
         });
     }
-    let totalClass = document.querySelector("#totalClass");
-    let totalConainer = document.querySelector("#total");
-    let totalPrice = 0;
     for (let i = 0; i < cart.length; i++) {
         totalPrice += cart[i].price;
     }
-    totalConainer.textContent = totalPrice;
+    totalConainer.textContent = totalPrice.toFixed(2);
     displayProductsInCart();
     if (cart == "") {
         totalClass.style.display = "none";
@@ -83,13 +83,67 @@ function displayProductsInCart() {
     productsContianerInCart.innerHTML = "";
     for (let i = 0; i < cart.length; i++) {
         productsContianerInCart.innerHTML += `
-        <div class="productInCartCard" onclick="productPage(${i})">
+        <div class="productInCartCard" onclick="productPageInCart(${i})">
             <div class="productImg"><img src="${cart[i].img}"></div>
+            <div class="count" onclick="event.stopPropagation()">
+                <button onclick="plus(${i})">+</button>
+                <span id="${i}">1</span>
+                <button onclick="subtract(${i})">-</button>
+            </div>
             <div class="productInfo">
-                <h3>${cart[i].des}</h3>
                 <p>${cart[i].price}</span><span id="cionIcon">&#xFDFC;</span></p>
+                <h3>${cart[i].des}</h3>
             </div>
         </div>
         `;
+    }
+}
+function productPageInCart(indexOfProduct) {
+    let productDes = cart[indexOfProduct].des.split(":");
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].des == productDes[1]) {
+            sessionStorage.setItem("index", i);
+            window.location.href = "product.html";
+        }
+    }
+}
+let countConianer = [];
+let count = [];
+for (let i = 0; i < cart.length; i++) {
+    countConianer[i]  = document.getElementById(i);
+    count[i] = countConianer[i].textContent;
+}
+function plus(index) {
+    count[index]++;
+    totalPrice += cart[index].price;
+    countConianer[index].textContent = count[index];
+    totalConainer.textContent = totalPrice.toFixed(2);
+    localStorage.removeItem(`count${index}`);
+    localStorage.setItem(`count${index}`, count);
+    localStorage.setItem(`totalPrice${index}`, totalPrice);
+}
+function subtract(index) {
+    if (count[index] > 0) {
+        if (count[index] === 1) {
+            confirm("هل أنت متاكد من حذف المنتج من السلة؟")
+        } else {
+            count[index]--;
+            totalPrice -= cart[index].price;
+            countConianer[index].textContent = count[index];
+            totalConainer.textContent = totalPrice.toFixed(2);
+            localStorage.removeItem(`count${index}`);
+            localStorage.setItem(`count${index}`, count);
+            localStorage.setItem(`totalPrice${index}`, totalPrice);
+        }
+    }
+}
+window.onload = () => {
+    if (productsContianerInCart) {
+        for (let i = 0; i < cart.length; i++) {
+            count[i] = localStorage.getItem(`count${i}`) || 1;
+            countConianer[i].textContent = count[i];
+            totalPrice = Number(localStorage.getItem(`totalPrice${i}`)) || totalPrice;
+            totalConainer.textContent = totalPrice.toFixed(2);
+        }
     }
 }

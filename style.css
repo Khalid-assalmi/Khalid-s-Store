@@ -192,6 +192,7 @@ b {
     align-items: center;
     animation: appear 0.8s linear forwards;
     z-index: 1;
+    padding-right: 7px;
 }
 .productCard {
     position: relative;

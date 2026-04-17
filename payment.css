@@ -3,7 +3,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 30%;
+    height: 27%;
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -18,9 +18,10 @@
     gap: 16px;
     line-height: 1px;
 }
-h2 {
+#questionForPayment {
     position: fixed;
-    top: 40px;
+    top: 30px;
+    font-size: 21px;
 }
 .peymentInfo {
     display: flex;
@@ -43,7 +44,7 @@ h2 {
     background-color: var(--addBtn-bg);
     color: var(--white);
     border: none;
-    border-radius: 25px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 15px;
     height: 34px;

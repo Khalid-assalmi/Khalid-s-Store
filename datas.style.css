@@ -338,9 +338,10 @@ body {
 .sureBox {
     margin-top: 30vh;
     width: 72vw;
-    height: 20vh;
+    height: 48vh;
     background-color: #fff;
     display: flex;
+    gap: 8px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -348,6 +349,73 @@ body {
     box-shadow: 0 0 10px var(--main);
     justify-self: center;
     border-radius: 25px;
-    border: 1px solid var(--addBtn-hover-bg);
+    border: 2px solid var(--addBtn-hover-bg);
     animation: appear 0.2s linear forwards;
+    padding: 6px 18px;
+    max-width: 600px;
+    max-height: 200px;
+}
+.sureBtns {
+    display: flex;
+    gap: 7px;
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    box-sizing: border-box;
+}
+.sureBtns button {
+    background-color: var(--addBtn-bg);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    height: 30px;
+    padding: 0 12px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+.sureBtns button:hover {
+    background-color: var(--addBtn-hover-bg);
+}
+.sureBox h3 {
+    color: var(--main);
+    font-size: 20px;
+    position: relative;
+    top: 16px;
+}
+#no {
+    background-color: rgba( 0, 0, 0, 0.1);
+    color: #222;
+}
+#no:hover {
+    border: 1px solid #222;
+}
+.productInfoForSureBox {
+    display: flex;
+    gap: 8px;
+    border: 1px solid var(--emptyBox-color);
+    padding: 4px;
+    border-radius: 18px;
+    height: 90px;
+    margin-bottom: 74px;
+}
+.productInfoForSureBox img {
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+}
+.productInfoForSureBox p {
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.productInfoForSureBoxPrice {
+    font-size: 20px;
+}
+.productInfoForSureBoxText {
+    width: 52vw;
+    margin-bottom: 50px;
 }

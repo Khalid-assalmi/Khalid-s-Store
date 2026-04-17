@@ -2,7 +2,7 @@ let peymentCheckBox = document.createElement("div");
 function peymentCheck() {
     peymentCheckBox.classList.add("peymentCheckBox");
     peymentCheckBox.innerHTML = `
-        <h2>هل أنت متأكد من إتمام عملية الدفع؟</h2>
+        <h3 id="questionForPayment">هل أنت متأكد من إتمام عملية الدفع؟</h3>
         <div class="peymentInfo">
             <p>إجمالي المشتريات: ${totalPrice.toFixed(2)} &#xFDFC;</p>
             <p>عدد المنتجات: ${cart.length}</p>

@@ -53,7 +53,6 @@ input[type="search"] {
 .tools {
     display: flex;
     gap: 12px;
-    animation: appearTools 0.8s linear 0.2s forwards;
     align-items: center;
     height: 5vh;
 }
@@ -167,7 +166,6 @@ i {
 a {
     color: var(--gray);
     cursor: pointer;
-    animation: appear 0.5s linear 0.2s forwards;
 }
 .hiddenText {
     color: var(--white);
@@ -304,12 +302,6 @@ b {
 }
 .settingCard i {
     color: var(--main)
-}
-@keyframes appearTools {
-    from {
-        opacity: 0;
-        translate: 200px 0;
-    }
 }
 @keyframes appear {
     from {

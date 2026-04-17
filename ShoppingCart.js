@@ -73,10 +73,6 @@ if (addBtn) {
                 turn = false;
         });
     }
-    for (let i = 0; i < cart.length; i++) {
-        totalPrice += cart[i].price * count[i] || cart[i].price;
-        totalConainer.textContent = totalPrice.toFixed(2);
-    }
     displayProductsInCart();
     if (cart == "") {
         totalClass.style.display = "none";
@@ -84,6 +80,13 @@ if (addBtn) {
     } else {
         totalClass.style.display = "";
         searchInp.style.display = "";
+    }
+}
+function calculateTotalPrice() {
+    totalPrice = 0;
+    for (let i = 0; i < cart.length; i++) {
+        totalPrice += cart[i].price * count[i] || cart[i].price;
+        totalConainer.textContent = totalPrice.toFixed(2);
     }
 }
 function displayProductsInCart() {
@@ -131,6 +134,7 @@ function plus(index) {
     count[index]++;
     localStorage.setItem(`count${index}`, count[index]);
     countConianer[index].textContent = count[index];
+    calculateTotalPrice();
 }
 let sureBox = document.createElement("div");
 function subtract(index) {
@@ -138,7 +142,14 @@ function subtract(index) {
         if (count[index] === 1) {
             sureBox.className = "sureBox";
             sureBox.innerHTML = `
-            <p>هل أنت متأكد من حذف هذا المنتج من السلة؟</p>
+            <h3>هل أنت متأكد من حذف هذا المنتج من السلة؟</h3>
+            <div class="productInfoForSureBox">
+                <img src="${cart[index].img}" alt="${cart[index].des}">
+                <div class="productInfoForSureBoxText">
+                    <p class="productInfoForSureBoxPrice">${cart[index].price}</p>
+                    <p>${cart[index].des}</p>
+                </div>
+            </div>
             <div class="sureBtns">
                 <button id="no" onclick="noForRemove()">لا</button>
                 <button id="yes" onclick="yesForRemove(${index})">نعم</button>
@@ -149,6 +160,7 @@ function subtract(index) {
             count[index]--;
             countConianer[index].textContent = count[index];
             localStorage.setItem(`count${index}`, count[index]);
+            calculateTotalPrice();
         }
     }
 }
@@ -166,9 +178,16 @@ function yesForRemove(index) {
     localStorage.setItem("cart", JSON.stringify(cart));
     window.location.reload();
 }
+sureBox.addEventListener("click", (event) => {
+    event.stopPropagation();
+});
+document.documentElement.addEventListener("click", () => {
+    noForRemove();
+});
 if (productsContianerInCart) {
     for (let i = 0; i < cart.length; i++) {
         count[i] = parseFloat(localStorage.getItem(`count${i}`)) || 1;
         countConianer[i].textContent = count[i];
+        calculateTotalPrice();
     }
 }

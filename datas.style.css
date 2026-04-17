@@ -338,7 +338,7 @@ body {
 }
 .sureBox {
     margin-top: 30vh;
-    width: 76vw;
+    width: 80vw;
     height: 50vh;
     background-color: #fff;
     display: flex;
@@ -417,7 +417,7 @@ body {
     font-size: 20px;
 }
 .productInfoForSureBoxText {
-    width: 52vw;
-    max-width: 450px;
+    width: 59vw;
+    max-width: 500px;
     margin-bottom: 50px;
 }

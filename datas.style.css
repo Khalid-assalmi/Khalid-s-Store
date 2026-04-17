@@ -1,5 +1,5 @@
 :root {
-    --main: #111;
+    --main: #222;
     --backBtn-bg: #f0f0f07a;
     --backBtn-hover-bg: #e0e0e096;
     --emptyBox-color: #b9b9b9;
@@ -79,7 +79,7 @@ body {
     bottom: 0;
     right: 0;
     padding-top: 15vh;
-    padding-bottom: 26vh;
+    padding-bottom: 35vh;
     z-index: -1;
     width: 100%;
     display: flex;
@@ -89,7 +89,8 @@ body {
     overflow-y: auto;
 }
 .empty {
-    height: 100%;
+    position: fixed;
+    top: 32vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -102,7 +103,6 @@ body {
 }
 .productInCartCard {
     width: 95vw;
-    max-width: 700px;
     min-height: 130px;
     box-sizing: border-box;
     background-color: var(--white);
@@ -120,7 +120,7 @@ body {
     width: 120px;
     height: 100%;
     top: 0;
-    border-radius: 16px;
+    border-radius: 14px;
     cursor: pointer;
 }
 .productInfo {
@@ -128,7 +128,7 @@ body {
 }
 .productInfo h3 {
     position: absolute;
-    width: 69.8%;
+    width: 63vw;
     bottom: 12px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -156,7 +156,7 @@ body {
     background-color: var(--white);
     border: 1px solid var(--main);
     border-radius: 21px;
-    padding: 2px 3px;
+    padding: 1px 4px;
     display: flex;
     gap: 3px;
 }
@@ -219,13 +219,13 @@ body {
         height: 63vh;
         position: absolute;
         top: 0;
-        border-bottom-right-radius: 16px;
-        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
         box-shadow: 0 1px 8px #000;
     }
     .productImage img {
-        border-bottom-right-radius: 16px;
-        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
     }
     .price {
         position: absolute;

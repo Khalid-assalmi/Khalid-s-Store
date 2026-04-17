@@ -12,6 +12,11 @@ if (addBtn) {
             price: parseFloat(document.querySelector(".price").textContent.replace("ريال", ""))
         });
         localStorage.setItem("cart", JSON.stringify(cart));
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].des == localStorage.getItem(`count${i}`)) {
+                localStorage.removeItem(`count${i}`);
+            }
+        }
         alert("تم إضافة المتتج إلى السلة");
     });
 } else {
@@ -81,21 +86,30 @@ if (addBtn) {
 }
 function displayProductsInCart() {
     productsContianerInCart.innerHTML = "";
-    for (let i = 0; i < cart.length; i++) {
-        productsContianerInCart.innerHTML += `
-        <div class="productInCartCard" onclick="productPageInCart(${i})">
-            <div class="productImg"><img src="${cart[i].img}"></div>
-            <div class="count" onclick="event.stopPropagation()">
-                <button onclick="plus(${i})">+</button>
-                <span id="${i}">1</span>
-                <button onclick="subtract(${i})">-</button>
-            </div>
-            <div class="productInfo">
-                <p>${cart[i].price}</span><span id="cionIcon">&#xFDFC;</span></p>
-                <h3>${cart[i].des}</h3>
-            </div>
+    if(cart.length === 0) {
+        productsContianerInCart.innerHTML = `
+        <div class="empty">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <h3>لا توجد منتجات في السلة</h3>
         </div>
         `;
+    } else {
+        for (let i = 0; i < cart.length; i++) {
+            productsContianerInCart.innerHTML += `
+            <div class="productInCartCard" onclick="productPageInCart(${i})">
+                <div class="productImg"><img src="${cart[i].img}"></div>
+                <div class="count" onclick="event.stopPropagation()">
+                    <button onclick="plus(${i})">+</button>
+                    <span id="${i}">1</span>
+                    <button onclick="subtract(${i})">-</button>
+                </div>
+                <div class="productInfo">
+                    <p>${cart[i].price}</span><span id="cionIcon">&#xFDFC;</span></p>
+                    <h3>${cart[i].des}</h3>
+                </div>
+            </div>
+            `;
+        }
     }
 }
 function productPageInCart(indexOfProduct) {
@@ -118,32 +132,33 @@ function plus(index) {
     totalPrice += cart[index].price;
     countConianer[index].textContent = count[index];
     totalConainer.textContent = totalPrice.toFixed(2);
-    localStorage.removeItem(`count${index}`);
     localStorage.setItem(`count${index}`, count);
     localStorage.setItem(`totalPrice${index}`, totalPrice);
 }
 function subtract(index) {
     if (count[index] > 0) {
         if (count[index] === 1) {
-            confirm("هل أنت متاكد من حذف المنتج من السلة؟")
+            let sure = confirm("هل أنت متاكد من حذف المنتج من السلة؟");
+            console.log(sure)
+            if (sure == true) {
+                cart.splice(index, 1)
+                localStorage.setItem("cart", JSON.stringify(cart))
+            }
         } else {
             count[index]--;
             totalPrice -= cart[index].price;
             countConianer[index].textContent = count[index];
             totalConainer.textContent = totalPrice.toFixed(2);
-            localStorage.removeItem(`count${index}`);
             localStorage.setItem(`count${index}`, count);
             localStorage.setItem(`totalPrice${index}`, totalPrice);
         }
     }
 }
-window.onload = () => {
-    if (productsContianerInCart) {
-        for (let i = 0; i < cart.length; i++) {
-            count[i] = localStorage.getItem(`count${i}`) || 1;
-            countConianer[i].textContent = count[i];
-            totalPrice = Number(localStorage.getItem(`totalPrice${i}`)) || totalPrice;
-            totalConainer.textContent = totalPrice.toFixed(2);
-        }
+if (productsContianerInCart) {
+    for (let i = 0; i < cart.length; i++) {
+        count[i] = parseInt(localStorage.getItem(`count${i}`)) || 1;
+        countConianer[i].textContent = count[i];
+        totalPrice = Number(localStorage.getItem(`totalPrice${i}`)) || totalPrice;
+        totalConainer.textContent = totalPrice.toFixed(2);
     }
 }

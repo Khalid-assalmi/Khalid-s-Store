@@ -92,6 +92,7 @@ if (searchInp) {
 }
 let products = JSON.parse(localStorage.getItem("products")) || [];
 let searchContianer = document.querySelector(".searchContianer");
+let timer = null;
 function search() {
     if (products.length > 0) {
         searchContianer.innerHTML = `
@@ -100,32 +101,36 @@ function search() {
             <span>جاري البحث عن منتجات تتطابق مع "${searchInp.value.trim()}"</span>
         </div>
         `;
-        for (let i = 0; i < products.length; i++) {
-            if (products[i].des.toLowerCase().includes(searchInp.value.trim().toLowerCase())) {
-                setTimeout(() => {
-                    searchContianer.innerHTML = "";
-                }, 2905);
-                setTimeout(() => {
-                    searchContianer.innerHTML = "";
-                }, 3100);
-                setTimeout(() => {
-                    searchContianer.innerHTML += `
-                    <div class="productCard" onclick="productPage(${i})">
-                        <div class="imgBox"><img src="${products[i].img}"></div>
-                        <div class="priceBox"><span>${products[i].price}</span><span id="cionIcon">&#xFDFC;</span></div>
-                        <div class="descriptionBox">${products[i].des}</div>
-                    </div>
-                `;
-                }, 3110);
-            } else if (!products[i].des.toLowerCase().includes(searchInp.value.trim().toLowerCase())){
-                setTimeout(() => {
-                    searchContianer.innerHTML = `<div class="notFoundMassege">
-                    <i class="fa fa-search" id="searchIcon"></i>
-                    <span>لا توجد نتائج بحث متطابقة مع "${searchInp.value.trim()}"</span>
-                    </div>`;
-                }, 3098);
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            for (let i = 0; i < products.length; i++) {
+                if (products[i].des.toLowerCase().includes(searchInp.value.trim().toLowerCase())) {
+                    setTimeout(() => {
+                        searchContianer.innerHTML = "";
+                    }, 2905);
+                    setTimeout(() => {
+                        searchContianer.innerHTML = "";
+                    }, 3100);
+                    setTimeout(() => {
+                        searchContianer.innerHTML += `
+                        <div class="productCard" onclick="productPage(${i})">
+                            <div class="imgBox"><img src="${products[i].img}"></div>
+                            <div class="priceBox"><span>${products[i].price}</span><span id="cionIcon">&#xFDFC;</span></div>
+                            <div class="descriptionBox">${products[i].des}</div>
+                        </div>
+                    `;
+                    }, 3110);
+                } else if (!products[i].des.toLowerCase().includes(searchInp.value.trim().toLowerCase())){
+                    setTimeout(() => {
+                        searchContianer.innerHTML = `<div class="notFoundMassege">
+                        <i class="fa fa-search" id="searchIcon"></i>
+                        <span>لا توجد نتائج بحث متطابقة مع "${searchInp.value.trim()}"</span>
+                        <p>حاول كتابة المنتج بصيغة أخرى</p>
+                        </div>`;
+                    }, 3098);
+                }
             }
-        }
+        }, 500);
     } else {
         searchContianer.innerHTML = `<div class="notFoundMassege"><i class="fa fa-triangle-exclamation" id="searchIcon"></i><span>حدث خطأ غير مقصود نتج عنه عدم تحميل المنتجات</span></div>`;
     }

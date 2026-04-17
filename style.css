@@ -1,5 +1,5 @@
 :root {
-    --main: #111;
+    --main: #222;
     --font-color: #dab514;
     --white: #fff;
     --search-button-hover: #161616;
@@ -15,6 +15,7 @@
     cursor: default;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     z-index: 3;
+    color: #222;
 }
 body {
     overflow-x: hidden;
@@ -123,6 +124,8 @@ input[type="search"] {
     padding: 20px 6vw;
     overflow: hidden;
     z-index: 1;
+    display: flex;
+    justify-content: space-between;
 }
 h1 {
     color: var(--white);

@@ -85,7 +85,7 @@ input[type="search"] {
     color: var(--font-color);
     cursor: pointer;
 }
-#settingsBtnIcon:hover {
+#settingsBtnIcon:hover, #icon:hover {
     color: var(--settingsBtn-hover);
 }
 .signInBtn {
@@ -112,8 +112,8 @@ input[type="search"] {
 }
 .container {
     background-color: var(--main);
-    margin-top: 6vh;
     position: absolute;
+    top: 6vh;
     left: 0;
     right: 0;
     height: 26vh;
@@ -133,6 +133,9 @@ h1 {
     color: var(--font-color);
     font-style: italic;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#icon {
+    color: var(--font-color);
 }
 .text {
     animation: appear 0.8s linear forwards;
@@ -182,15 +185,11 @@ b {
     padding-top: 50px;
     justify-content: center;
     padding-bottom: 90px;
-    position: absolute;
-    left: 0;
-    right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     animation: appear 0.8s linear forwards;
     z-index: 1;
-    padding-right: 8px;
 }
 .productCard {
     position: relative;

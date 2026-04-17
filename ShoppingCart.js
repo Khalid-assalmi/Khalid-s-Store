@@ -146,7 +146,7 @@ function subtract(index) {
             <div class="productInfoForSureBox">
                 <img src="${cart[index].img}" alt="${cart[index].des}">
                 <div class="productInfoForSureBoxText">
-                    <p class="productInfoForSureBoxPrice">${cart[index].price}</p>
+                    <p class="productInfoForSureBoxPrice">${cart[index].price} &#xFDFC;</p>
                     <p>${cart[index].des}</p>
                 </div>
             </div>

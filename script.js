@@ -25,8 +25,8 @@ socailMedia.textContent = "وسائل التواصل الاجتماعي";
 let socailMediaIcon = document.createElement("i");
 socailMediaIcon.className = "fa-brands fa-whatsapp";
 let turn = false;
-if (searchInp) {
-        settingsBtn.addEventListener("click", (e) => {
+if (settingsBtn) {
+    settingsBtn.addEventListener("click", (e) => {
         if (!turn) {
             settingsBtn.appendChild(div);
             div.append(settingCard, settingCard2, settingCard3);
@@ -65,30 +65,32 @@ if (searchInp) {
             }
         });
     }
-    searchInp.addEventListener("focus", appearAndHideSearchInput);
-    searchInp.addEventListener("input", () => {
-        appearAndHideSearchInput();
-            if (searchInp.value.trim()) {
-            searchContianer.style.display = "flex";
-            document.body.style.overflow = "hidden";
-            searchContianer.style.animationName = "";
-            search();
-        } else if (!searchInp.value.trim()) {
-            searchContianer.style.animationName = "hide";
-            setTimeout(() => {
-                searchContianer.style.display = "";
-                document.body.style.overflow = "";
-            }, 300);
-        }
-    });
-    searchInp.addEventListener("blur", () =>  {
-        searchBtn.style.opacity = "";
-        searchInp.style.maxWidth = "";
-        searchInp.style.width = "";
-        searchInp.style.padding = "";
-        searchInp.style.borderRadius = "";
-        signInBtn.style.opacity = "";
-    });
+    if (searchInp) {
+        searchInp.addEventListener("focus", appearAndHideSearchInput);
+        searchInp.addEventListener("input", () => {
+            appearAndHideSearchInput();
+                if (searchInp.value.trim()) {
+                searchContianer.style.display = "flex";
+                document.body.style.overflow = "hidden";
+                searchContianer.style.animationName = "";
+                search();
+            } else if (!searchInp.value.trim()) {
+                searchContianer.style.animationName = "hide";
+                setTimeout(() => {
+                    searchContianer.style.display = "";
+                    document.body.style.overflow = "";
+                }, 300);
+            }
+        });
+        searchInp.addEventListener("blur", () =>  {
+            searchBtn.style.opacity = "";
+            searchInp.style.maxWidth = "";
+            searchInp.style.width = "";
+            searchInp.style.padding = "";
+            searchInp.style.borderRadius = "";
+            signInBtn.style.opacity = "";
+        });
+    }
 }
 let products = JSON.parse(localStorage.getItem("products")) || [];
 let searchContianer = document.querySelector(".searchContianer");

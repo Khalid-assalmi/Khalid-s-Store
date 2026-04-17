@@ -87,6 +87,7 @@ body {
     align-items: center;
     gap: 18px;
     overflow-y: auto;
+    animation: appear 0.8s linear forwards;
 }
 .empty {
     position: fixed;
@@ -337,8 +338,8 @@ body {
 }
 .sureBox {
     margin-top: 30vh;
-    width: 72vw;
-    height: 48vh;
+    width: 76vw;
+    height: 50vh;
     background-color: #fff;
     display: flex;
     gap: 8px;
@@ -349,9 +350,9 @@ body {
     box-shadow: 0 0 10px var(--main);
     justify-self: center;
     border-radius: 25px;
-    border: 2px solid var(--addBtn-hover-bg);
+    border: 2px solid #dab514;
     animation: appear 0.2s linear forwards;
-    padding: 6px 18px;
+    padding: 12px 18px;
     max-width: 600px;
     max-height: 200px;
 }
@@ -370,8 +371,8 @@ body {
     border-radius: 12px;
     cursor: pointer;
     font-size: 15px;
-    height: 30px;
-    padding: 0 12px;
+    height: 34px;
+    padding: 0 19px;
     transition: 0.3s;
     display: flex;
     align-items: center;
@@ -381,7 +382,7 @@ body {
 }
 .sureBox h3 {
     color: var(--main);
-    font-size: 20px;
+    font-size: 18px;
     position: relative;
     top: 16px;
 }
@@ -417,5 +418,6 @@ body {
 }
 .productInfoForSureBoxText {
     width: 52vw;
+    max-width: 450px;
     margin-bottom: 50px;
 }

@@ -335,3 +335,19 @@ body {
         margin-left: 14px;
     }
 }
+.sureBox {
+    margin-top: 30vh;
+    width: 72vw;
+    height: 20vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    box-shadow: 0 0 10px var(--main);
+    justify-self: center;
+    border-radius: 25px;
+    border: 1px solid var(--addBtn-hover-bg);
+    animation: appear 0.2s linear forwards;
+}

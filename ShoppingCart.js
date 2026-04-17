@@ -4,6 +4,8 @@ let totalClass = document.querySelector("#totalClass");
 let totalConainer = document.querySelector("#total");
 let totalPrice = 0;
 let productsContianerInCart = document.querySelector(".productsContainerInCart");
+let countConianer = [];
+let count = [];
 if (addBtn) {
     addBtn.addEventListener("click", function() {
         cart.push({
@@ -63,18 +65,18 @@ if (addBtn) {
             e.stopPropagation();
         });
         document.addEventListener("click", () => {
-        div.style.animationName = "hideSettingsBox";
-        setTimeout(() => {
-            div.style.animationName = "";
-            div.remove();
-        }, 40);
-            turn = false;
+            div.style.animationName = "hideSettingsBox";
+            setTimeout(() => {
+                div.style.animationName = "";
+                div.remove();
+            }, 40);
+                turn = false;
         });
     }
     for (let i = 0; i < cart.length; i++) {
-        totalPrice += cart[i].price;
+        totalPrice += cart[i].price * count[i] || cart[i].price;
+        totalConainer.textContent = totalPrice.toFixed(2);
     }
-    totalConainer.textContent = totalPrice.toFixed(2);
     displayProductsInCart();
     if (cart == "") {
         totalClass.style.display = "none";
@@ -121,44 +123,52 @@ function productPageInCart(indexOfProduct) {
         }
     }
 }
-let countConianer = [];
-let count = [];
 for (let i = 0; i < cart.length; i++) {
     countConianer[i]  = document.getElementById(i);
     count[i] = countConianer[i].textContent;
 }
 function plus(index) {
     count[index]++;
-    totalPrice += cart[index].price;
+    localStorage.setItem(`count${index}`, count[index]);
     countConianer[index].textContent = count[index];
-    totalConainer.textContent = totalPrice.toFixed(2);
-    localStorage.setItem(`count${index}`, count);
-    localStorage.setItem(`totalPrice${index}`, totalPrice);
 }
+let sureBox = document.createElement("div");
 function subtract(index) {
     if (count[index] > 0) {
         if (count[index] === 1) {
-            let sure = confirm("هل أنت متاكد من حذف المنتج من السلة؟");
-            console.log(sure)
-            if (sure == true) {
-                cart.splice(index, 1)
-                localStorage.setItem("cart", JSON.stringify(cart))
-            }
+            sureBox.className = "sureBox";
+            sureBox.innerHTML = `
+            <p>هل أنت متأكد من حذف هذا المنتج من السلة؟</p>
+            <div class="sureBtns">
+                <button id="no" onclick="noForRemove()">لا</button>
+                <button id="yes" onclick="yesForRemove(${index})">نعم</button>
+            </div>
+            `;
+            document.body.appendChild(sureBox);
         } else {
             count[index]--;
-            totalPrice -= cart[index].price;
             countConianer[index].textContent = count[index];
-            totalConainer.textContent = totalPrice.toFixed(2);
-            localStorage.setItem(`count${index}`, count);
-            localStorage.setItem(`totalPrice${index}`, totalPrice);
+            localStorage.setItem(`count${index}`, count[index]);
         }
     }
 }
+function noForRemove() {
+    sureBox.style.animationName = "hide";
+    setTimeout(() => {
+        sureBox.remove();
+        sureBox.style.animationName = "";
+    }, 200);
+}
+function yesForRemove(index) {
+    sureBox.remove();
+    localStorage.removeItem(`count${index}`);
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.location.reload();
+}
 if (productsContianerInCart) {
     for (let i = 0; i < cart.length; i++) {
-        count[i] = parseInt(localStorage.getItem(`count${i}`)) || 1;
+        count[i] = parseFloat(localStorage.getItem(`count${i}`)) || 1;
         countConianer[i].textContent = count[i];
-        totalPrice = Number(localStorage.getItem(`totalPrice${i}`)) || totalPrice;
-        totalConainer.textContent = totalPrice.toFixed(2);
     }
 }

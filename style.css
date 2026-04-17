@@ -261,9 +261,9 @@ b {
     text-overflow: ellipsis;
 }
 .settingsBox {
-    position: absolute;
-    top: 95%;
-    right: 95%;
+    position: fixed;
+    top: 42px;
+    right: 24px;
     background-color: var(--white);
     animation: appearSettingsBox 0.2s linear forwards;
     border-radius: 16px;

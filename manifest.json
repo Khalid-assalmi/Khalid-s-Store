@@ -3,7 +3,7 @@
     "short_name": "Khalid's Store",
     "start_url": "./index.html",
     "display": "standalone",
-    "background_color": "#111",
+    "background_color": "#fff",
     "theme_color": "#111",
     "icons": [
         {

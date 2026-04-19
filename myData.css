@@ -79,12 +79,3 @@ input:focus, select:focus {
 #saveBtn:hover, #deleteBtn:hover, #nextAfterEnterData:hover {
     background-color: #1a1a1a;
 }
-.back {
-    background-color: transparent;
-    border: none;
-    color: var(--font-color);
-    font-size: 20px;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-}

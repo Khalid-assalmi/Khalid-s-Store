@@ -268,7 +268,7 @@ b {
     animation: appearSettingsBox 0.2s linear forwards;
     border-radius: 16px;
     width: 180px;
-    height: 230px;
+    height: 260px;
     display: flex;
     flex-direction: column;
     justify-content: center;

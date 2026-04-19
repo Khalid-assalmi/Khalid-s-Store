@@ -9,7 +9,7 @@ function peymentCheck() {
         </div>
         <div class="buttons">
             <button id="cancelPeyment" onclick="cancelPeyment()">لا، إلغاء</button>
-            <button id="confirmPeyment" onclick="completePayment()">نعم، أكمل الدفع</button>
+            <button onclick="completePayment()">نعم، أكمل الدفع</button>
         </div>
     `;
     document.body.appendChild(peymentCheckBox);
@@ -21,35 +21,71 @@ function cancelPeyment() {
         peymentCheckBox.style.animationName = "";
     }, 300);
 }
-peymentCheckBox.addEventListener("click", (event) => {
-    event.stopPropagation();
-});
-document.getElementById("peymentBtn").addEventListener("click", (event) => {
-    event.stopPropagation();
-});
-document.documentElement.addEventListener("click", () => {
-    cancelPeyment();
-});
-let alertBox = document.createElement("div");
+if (document.getElementById("paymentBtn")) {
+    peymentCheckBox.addEventListener("click", (event) => {
+        event.stopPropagation();
+    });
+    document.getElementById("peymentBtn").addEventListener("click", (event) => {
+        event.stopPropagation();
+    });
+    document.documentElement.addEventListener("click", () => {
+        cancelPeyment();
+    });
+}
 function completePayment() {
-    sureBox.remove();
-    alertBox.classList.add("sureBox");
-    alertBox.id = "alertBox";
-    alertBox.innerHTML = `
-        <h3>تحتاج إلى تسجيل الدخول أولاً قبل إستئناف عملية الدفع!</h3>
-        <div class="alertBtns">
-            <a href="signIn.html">تسجيل الدخول</a>
-            <button id="closeAlert" onclick="closeAlert()">إغلاق</button>
+    if (info.length > 0) {
+        window.location.href = "payment.html";
+    } else {
+        window.location.href = "enterData.html";
+    }
+}
+function confirmPayment() {
+    peymentCheckBox.classList.add("finallyPeymentCheckBox");
+    peymentCheckBox.innerHTML = `
+        <h3 id="questionForPayment">هل انت متأكد من استئناف الدفع؟</h3>
+        <div id="confirmForSendTheOrder">
+            <p>بموافقتك على إرسال الطلب تكون قد أقررت بقراءة
+            <a>الشروط و الأحكام</a>
+            و
+            <a>وطريقة الدفع و الاستلام</a>
+            والموافقة عليهما.</p>
+        </div>
+        <div class="peymentInfo finallyCheckPaymentInfo">
+            <p>إجمالي المشتريات: ${totalPrice.toFixed(2)} &#xFDFC;</p>
+            <p>عدد المنتجات: ${cart.length}</p>
+        </div>
+        <div class="buttons">
+            <button id="cancelPeyment" onclick="cancelPeyment()">لا، إلغاء</button>
+            <button onclick="sendOrder()">أرسل الطلب</button>
         </div>
     `;
-    document.body.appendChild(alertBox);
-    cancelPeyment();
+    document.body.appendChild(peymentCheckBox);
 }
-function closeAlert() {
-    alertBox.style.animationName = "hide";
-    setTimeout(() => {
-        alertBox.remove();
-        alertBox.style.animationName = "";
+function sendOrder() {
+    let orders = "";
+    for (let i = 0; i < cart.length; i++) {
+        orders += `
+        المنتج ${i+1}:
+        ---------
+        كود المنتج: ${cart[i].pCode}
+        سعر المنتج: ${cart[i].price} ريال
+        ----------------------
+        `;
     }
-    , 300);
+    let massege = `
+    طلب جديد:
+    -{-***- البيانات الشخصية -***-}-
+    الاسم: ${info[0].name}
+    البريد الإلكتروني: ${info[0].email}
+    رقم الهاتف: ${info[0].phone}
+    العنوان: ${info[0].address}
+    ---{---***--- الطلب ---***---}---
+    ${orders}
+    ----------------------------------
+    الإجمالي: ${totalPrice.toFixed(2)} ريال
+    ------***- نهاية الطلب -***------
+    `;
+    console.log(massege);
+    let whatsAppUrl = `https://wa.me/967783479908?text=${encodeURIComponent(massege)}`;
+    window.open(whatsAppUrl, "_blank");
 }

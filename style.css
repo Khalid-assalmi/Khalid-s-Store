@@ -268,12 +268,12 @@ b {
     animation: appearSettingsBox 0.2s linear forwards;
     border-radius: 16px;
     width: 180px;
-    height: 150px;
+    height: 230px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 12px #000;
+    box-shadow: 0 0 12px #222;
     overflow: hidden;
     padding: 0 16px;
 }
@@ -295,6 +295,9 @@ b {
 }
 #paymentCard {
     border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+#socialMediaCard {
     border-bottom: 2px solid;
 }
 .settingCard:hover {

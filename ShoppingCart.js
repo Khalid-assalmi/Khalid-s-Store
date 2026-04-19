@@ -8,10 +8,12 @@ let countConianer = [];
 let count = [];
 if (addBtn) {
     addBtn.addEventListener("click", function() {
+        let i = sessionStorage.getItem("index")
         cart.push({
-            img: document.querySelector(".img").getAttribute("src"),
-            des: document.querySelector(".description").textContent,
-            price: parseFloat(document.querySelector(".price").textContent.replace("ريال", ""))
+            img: products[i].img,
+            des: products[i].des,
+            price: products[i].price,
+            pCode: products[i].pCode
         });
         localStorage.setItem("cart", JSON.stringify(cart));
         for (let i = 0; i < cart.length; i++) {
@@ -76,10 +78,8 @@ if (addBtn) {
     displayProductsInCart();
     if (cart == "") {
         totalClass.style.display = "none";
-        searchInp.style.display = "none";
     } else {
         totalClass.style.display = "";
-        searchInp.style.display = "";
     }
 }
 function calculateTotalPrice() {
@@ -126,9 +126,11 @@ function productPageInCart(indexOfProduct) {
         }
     }
 }
-for (let i = 0; i < cart.length; i++) {
-    countConianer[i]  = document.getElementById(i);
-    count[i] = countConianer[i].textContent;
+if (productsContianerInCart) {
+    for (let i = 0; i < cart.length; i++) {
+        countConianer[i]  = document.getElementById(i);
+        count[i] = countConianer[i].textContent;
+    }
 }
 function plus(index) {
     count[index]++;
@@ -165,7 +167,6 @@ function subtract(index) {
     }
 }
 function noForRemove() {
-    alertBox.remove();
     sureBox.style.animationName = "hide";
     setTimeout(() => {
         sureBox.remove();

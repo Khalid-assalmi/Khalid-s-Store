@@ -63,53 +63,54 @@
 #cancelPeyment:hover {
     border: 1px solid #222;
 }
-#alertBox {
-    justify-self: center;
-    background-color: #faeeee;
-    padding: 0 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    position: relative;
-    width: 80vw;
-    height: 23vh;
-    max-width: 400px;
-    max-height: 150px;
-    animation: appear 0.3s linear forwards;
-    border: 2px solid var(--addBtn-bg);
-    box-sizing: border-box;
+.total.totalClassInPaymentPage {
+    position: fixed;
+    bottom: 0;
 }
-#alertBox h3 {
-    color: var(--main);
-    font-size: 18px;
-    position: absolute;
-}
-.alertBtns {
+.finallyPeymentCheckBox {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-color: #fff;
     display: flex;
-    gap: 8px;
-    position: absolute;
-    left: 20px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: appear 0.2s linear forwards;
+    border-top: 2px solid #dab514;
+    box-shadow: 0 0 10px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    flex-direction: column;
+    gap: 16px;
+}
+.peymentInfo.finallyCheckPaymentInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    position: fixed;
+    right: 20px;
     bottom: 20px;
 }
-.alertBtns button, .alertBtns a {
-    background-color: var(--addBtn-bg);
-    color: var(--white);
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 15px;
-    height: 34px;
-    padding: 0 14px;
+@media (max-width: 680px) {
+    .peymentInfo.finallyCheckPaymentInfo {
+        font-size: 17px;
+    }
+    #confirmForSendTheOrder {
+        padding: 0 20px;
+    }
+    #confirmForSendTheOrder a {
+        font-size: 15px;
+        line-height: 30px;
+    }
 }
-.alertBtns a {
-    display: flex;
-    align-items: center;
-    background-color: rgba( 0, 0, 0, 0.1);
-    color: #222;
-    padding: 0 8px;
-}
-.alertBtns a:hover {
-    border: 1px solid #222;
-}
-.alertBtns button:hover {
-    background-color: var(--addBtn-hover-bg);
+@media (min-width: 681px) {
+    .peymentInfo.finallyCheckPaymentInfo {
+        font-size: 20px;
+    }
+    #confirmForSendTheOrder {
+        font-size: 18px;
+    }
 }

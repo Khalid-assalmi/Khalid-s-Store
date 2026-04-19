@@ -2,37 +2,45 @@ let settingsBtn = document.getElementById("settingsBtn");
 let searchInp = document.getElementById("searchInput");
 let searchBtn = document.getElementById("searchButton");
 let productsContianer = document.querySelector(".productsContianer");
-let signInBtn = document.querySelector(".signInBtn");
 let div = document.createElement("div");
 div.className = "settingsBox";
-let settingCard = document.createElement("div");
+let settingCard = document.createElement("a");
 settingCard.className = "settingCard";
-let conditions = document.createElement("a");
+let conditions = document.createElement("b");
 conditions.textContent = "الشروط والأحكام";
 let conditionsIcon = document.createElement("i");
 conditionsIcon.className = "fa-solid fa-circle-info";
-let settingCard2 = document.createElement("div");
+let settingCard2 = document.createElement("a");
 settingCard2.className = "settingCard";
-let payment = document.createElement("a");
+let payment = document.createElement("b");
 payment.textContent = "الدفع و الاستلام"
 settingCard2.id = "paymentCard";
 let paymentIcon = document.createElement("i");
 paymentIcon.className = "fa-regular fa-credit-card";
-let settingCard3 = document.createElement("div");
+let settingCard3 = document.createElement("a");
 settingCard3.className = "settingCard";
-let socailMedia = document.createElement("a");
+let socailMedia = document.createElement("b");
 socailMedia.textContent = "وسائل التواصل الاجتماعي";
+settingCard3.id = "socialMediaCard";
 let socailMediaIcon = document.createElement("i");
 socailMediaIcon.className = "fa-brands fa-whatsapp";
+let settingCard4 = document.createElement("a");
+settingCard4.className = "settingCard";
+settingCard4.href = "myData.html";
+let MyData = document.createElement("b");
+MyData.textContent = "بياناتي";
+let MyDataIcon = document.createElement("i");
+MyDataIcon.className = "fa-regular fa-user";
 let turn = false;
 if (settingsBtn) {
     settingsBtn.addEventListener("click", (e) => {
         if (!turn) {
             settingsBtn.appendChild(div);
-            div.append(settingCard, settingCard2, settingCard3);
+            div.append(settingCard, settingCard2, settingCard3, settingCard4);
             settingCard.append(conditions, conditionsIcon);
             settingCard2.append(payment, paymentIcon);
             settingCard3.append(socailMedia, socailMediaIcon);
+            settingCard4.append(MyData, MyDataIcon);
             e.stopPropagation();
             turn = true;
         } else {
@@ -56,7 +64,6 @@ if (settingsBtn) {
         searchInp.style.width = "60vw";
         searchInp.style.padding = "0 12px 0 30px";
         searchInp.style.borderRadius = "12px";
-        signInBtn.style.opacity = "0";
         setInterval(() => {
             if (searchInp.value) {
                 searchBtn.style.removeProperty("--main");
@@ -88,7 +95,6 @@ if (settingsBtn) {
             searchInp.style.width = "";
             searchInp.style.padding = "";
             searchInp.style.borderRadius = "";
-            signInBtn.style.opacity = "";
         });
     }
 }
@@ -162,13 +168,8 @@ function productPage(indexOfProduct) {
     window.location.href = "product.html";
     sessionStorage.setItem("index", indexOfProduct);
 }
-if (!signInBtn) {
+if (document.querySelector(".productImage")) {
     document.querySelector(".productImage").innerHTML = `<img class="img" src="${products[index].img}">`;
     document.querySelector(".price").innerHTML = `<div>${products[index].price}</div><div class="coin"></span><span id="cionIcon">&#xFDFC;</span></div>`
     document.getElementById("productDes").innerHTML = products[index].des;
-}
-if (signInBtn) {
-    signInBtn.addEventListener("click", () => {
-        window.location.href = "signIn.html";
-    });
 }

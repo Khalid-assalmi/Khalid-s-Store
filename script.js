@@ -109,10 +109,10 @@ function search() {
                 if (products[i].des.toLowerCase().includes(searchInp.value.trim().toLowerCase())) {
                     setTimeout(() => {
                         searchContianer.innerHTML = "";
-                    }, 2905);
+                    }, 1105);
                     setTimeout(() => {
                         searchContianer.innerHTML = "";
-                    }, 3100);
+                    }, 1200);
                     setTimeout(() => {
                         searchContianer.innerHTML += `
                         <div class="productCard" onclick="productPage(${i})">
@@ -121,7 +121,7 @@ function search() {
                             <div class="descriptionBox">${products[i].des}</div>
                         </div>
                     `;
-                    }, 3110);
+                    }, 1210);
                 } else if (!products[i].des.toLowerCase().includes(searchInp.value.trim().toLowerCase())){
                     setTimeout(() => {
                         searchContianer.innerHTML = `<div class="notFoundMassege">
@@ -129,10 +129,10 @@ function search() {
                         <span>لا توجد نتائج بحث متطابقة مع "${searchInp.value.trim()}"</span>
                         <p>حاول كتابة المنتج بصيغة أخرى</p>
                         </div>`;
-                    }, 3098);
+                    }, 1199);
                 }
             }
-        }, 500);
+        }, 1200);
     } else {
         searchContianer.innerHTML = `<div class="notFoundMassege"><i class="fa fa-triangle-exclamation" id="searchIcon"></i><span>حدث خطأ غير مقصود نتج عنه عدم تحميل المنتجات</span></div>`;
     }

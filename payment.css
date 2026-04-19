@@ -63,3 +63,53 @@
 #cancelPeyment:hover {
     border: 1px solid #222;
 }
+#alertBox {
+    justify-self: center;
+    background-color: #faeeee;
+    padding: 0 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: 80vw;
+    height: 23vh;
+    max-width: 400px;
+    max-height: 150px;
+    animation: appear 0.3s linear forwards;
+    border: 2px solid var(--addBtn-bg);
+    box-sizing: border-box;
+}
+#alertBox h3 {
+    color: var(--main);
+    font-size: 18px;
+    position: absolute;
+}
+.alertBtns {
+    display: flex;
+    gap: 8px;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+.alertBtns button, .alertBtns a {
+    background-color: var(--addBtn-bg);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    height: 34px;
+    padding: 0 14px;
+}
+.alertBtns a {
+    display: flex;
+    align-items: center;
+    background-color: rgba( 0, 0, 0, 0.1);
+    color: #222;
+    padding: 0 8px;
+}
+.alertBtns a:hover {
+    border: 1px solid #222;
+}
+.alertBtns button:hover {
+    background-color: var(--addBtn-hover-bg);
+}

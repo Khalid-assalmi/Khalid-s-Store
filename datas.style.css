@@ -179,7 +179,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 18px 0 14px;
-    box-shadow: 0 0 20px var(--main);
+    box-shadow: 0 0 10px var(--main);
     border-radius: 18px 18px 0 0;
 }
 .total h3 {
@@ -337,7 +337,8 @@ body {
     }
 }
 .sureBox {
-    margin-top: 30vh;
+    position: fixed;
+    top: 30vh;
     width: 80vw;
     height: 50vh;
     background-color: #fff;
@@ -417,7 +418,7 @@ body {
     font-size: 20px;
 }
 .productInfoForSureBoxText {
-    width: 59vw;
+    width: 61vw;
     max-width: 500px;
     margin-bottom: 50px;
 }

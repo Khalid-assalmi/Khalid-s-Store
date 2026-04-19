@@ -185,14 +185,12 @@ b {
     margin-top: 30vh;
     box-sizing: border-box;
     padding-top: 50px;
-    justify-content: center;
     padding-bottom: 90px;
     display: flex;
     justify-content: center;
-    align-items: center;
     animation: appear 0.8s linear forwards;
     z-index: 1;
-    padding-right: 7px;
+    padding-right: 8px;
 }
 .productCard {
     position: relative;
@@ -366,7 +364,7 @@ b {
         gap: 18vw;
     }
     .productCard {
-        width: 44vw;
+        width: 43.9vw;
         border-radius: 12px;
         border: 2px solid var(--gray);
         height: 69vw;

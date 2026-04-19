@@ -165,6 +165,7 @@ function subtract(index) {
     }
 }
 function noForRemove() {
+    alertBox.remove();
     sureBox.style.animationName = "hide";
     setTimeout(() => {
         sureBox.remove();

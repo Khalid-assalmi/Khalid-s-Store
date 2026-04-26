@@ -8,7 +8,7 @@ let countConianer = [];
 let count = [];
 if (addBtn) {
     addBtn.addEventListener("click", function() {
-        let i = sessionStorage.getItem("index")
+        let i = sessionStorage.getItem("index");
         cart.push({
             img: products[i].img,
             des: products[i].des,
@@ -118,9 +118,9 @@ function displayProductsInCart() {
     }
 }
 function productPageInCart(indexOfProduct) {
-    let productDes = cart[indexOfProduct].des.split(":");
+    let productDes = cart[indexOfProduct].des;
     for (let i = 0; i < products.length; i++) {
-        if (products[i].des == productDes[1]) {
+        if (products[i].des == productDes) {
             sessionStorage.setItem("index", i);
             window.location.href = "product.html";
         }

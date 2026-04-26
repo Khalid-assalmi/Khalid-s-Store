@@ -28,3 +28,16 @@ body {
     animation: appear 0.8s linear forwards;
     z-index: 1;
 }
+.userInfo {
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    display: flex;
+    gap: 12px;
+    padding:  5px 8px;
+    border: 1px solid #fff;
+    border-radius: 25px;
+}
+#firstLaterContainer {
+    background-color: #8f00b3;
+}

@@ -44,33 +44,49 @@ button {
     align-items: center;
     width: 98vw;
 }
-.inputs h3 {
+.inputs h4 {
     margin-bottom: 30px;
 }
+.inputs div {
+    display: flex;
+    width: 65vw;
+    max-width: 450px;
+    border: 2px solid var(--gray);
+    padding: 4px 12px;
+    height: 5vh;
+    max-height: 40px;
+    align-items: center;
+    border-radius: 8px;
+}
 input, select {
-    padding: 10px;
+    padding: 6px;
     width: 65vw;
     max-width: 450px;
     border: none;
-    border-bottom: 2px solid var(--gray);
     font-weight: 600;
     font-size: 16px;
 }
 select {
     width: 69vw;
-    max-width: 473px;
+    max-width: 475px;
+    border: 2px solid var(--gray);
+    padding: 15px;
+    border-radius: 8px;
+    background-color: transparent;
+}
+.inputs div:focus-within, select:focus {
+    border: 2px solid var(--font-color);
 }
 input:focus, select:focus {
     outline: none;
-    border-bottom: 2px solid var(--font-color);
 }
 #saveBtn, #deleteBtn, #nextAfterEnterData {
     background-color: var(--main);
     color: var(--white);
     border: none;
-    width: 65vw;
-    max-width: 450px;
-    padding: 14px 0;
+    width: 60vw;
+    max-width: 400px;
+    padding: 12px 0;
     font-size: 16px;
     margin-top: 20px;
     border-radius: 12px;

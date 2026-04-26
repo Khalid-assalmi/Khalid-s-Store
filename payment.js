@@ -1,4 +1,5 @@
 let peymentCheckBox = document.createElement("div");
+let purchases = JSON.parse(localStorage.getItem("purchases")) || [];
 function peymentCheck() {
     peymentCheckBox.classList.add("peymentCheckBox");
     peymentCheckBox.innerHTML = `
@@ -70,12 +71,18 @@ function sendOrder() {
             كود المنتج: ${cart[i].pCode}
             سعر المنتج: ${cart[i].price} ريال
             عدد القطع: ${count[i]}
-        ------------***------------
+        -------------*****-------------
         `;
+        purchases.push({
+            img: cart[i].img,
+            des: cart[i].des,
+            price: cart[i].price,
+            pCode: cart[i].pCode
+        })
     }
     let massege = `
     - طلب جديد:
-    -[***========== البيانات الشخصية =========***]-
+    -[***=========== البيانات الشخصية ===========***]-
 
         الاسم: ${info[0].name}
         البريد الإلكتروني: ${info[0].email}
@@ -84,12 +91,15 @@ function sendOrder() {
 
     -[***============== الطلب ==============***]-
     ${orders}
-    -[***============= ***** ===============***]-
+    -[***============== ***** ==============***]-
 
         الإجمالي: ${totalPrice.toFixed(2)} ريال
 
-    -{***============ نهاية الطلب ============***}-
+    -[***============ نهاية الطلب ============***]-
     `;
     let whatsAppUrl = `https://wa.me/967783479908?text=${encodeURIComponent(massege)}`;
     window.open(whatsAppUrl, "_blank");
+    cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.location.href = "thanksPage.html";
 }

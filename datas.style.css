@@ -87,7 +87,6 @@ body {
     align-items: center;
     gap: 18px;
     overflow-y: auto;
-    animation: appear 0.8s linear forwards;
 }
 .empty {
     position: fixed;

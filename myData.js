@@ -66,3 +66,15 @@ function loadInfo() {
         addressInput.value = userInfo.address;
     }
 }
+if (info.length > 0 && document.querySelector(".userName")) {
+    let userInfo = info[0];
+    document.querySelector(".userName").textContent = userInfo.name;
+    document.querySelector("#firstLaterContainer").textContent = userInfo.name[0];
+    //change the firstLaterContainer background
+    let colors = ["#8f00b3", "rgb(2, 136, 2)", "rgb(236, 162, 1)"]
+    let index = Math.floor(Math.random() * colors.length);
+    document.querySelector("#firstLaterContainer").style.background = colors[index];
+} else if (info.length == 0 && document.querySelector(".userName")) {
+    document.querySelector(".userInfo").style.border = "none";
+    document.querySelector(".userInfo").textContent = "تسجيل الدخول";
+}

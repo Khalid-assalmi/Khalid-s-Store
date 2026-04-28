@@ -49,14 +49,14 @@ button {
 }
 .inputs div {
     display: flex;
-    width: 65vw;
+    width: 72vw;
     max-width: 450px;
     border: 2px solid var(--gray);
-    padding: 4px 12px;
+    padding: 4px 11px;
     height: 5vh;
     max-height: 40px;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 7px;
 }
 input, select {
     padding: 6px;
@@ -64,14 +64,14 @@ input, select {
     max-width: 450px;
     border: none;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
 }
 select {
-    width: 69vw;
+    width: 77.5vw;
     max-width: 475px;
     border: 2px solid var(--gray);
-    padding: 15px;
-    border-radius: 8px;
+    padding: 11px;
+    border-radius: 7px;
     background-color: transparent;
 }
 .inputs div:focus-within, select:focus {
@@ -84,8 +84,8 @@ input:focus, select:focus {
     background-color: var(--main);
     color: var(--white);
     border: none;
-    width: 60vw;
-    max-width: 400px;
+    width: 65vw;
+    max-width: 420px;
     padding: 12px 0;
     font-size: 16px;
     margin-top: 20px;

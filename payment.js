@@ -91,7 +91,6 @@ function sendOrder() {
 
     -[***============== الطلب ==============***]-
     ${orders}
-    -[***============== ***** ==============***]-
 
         الإجمالي: ${totalPrice.toFixed(2)} ريال
 
@@ -99,6 +98,9 @@ function sendOrder() {
     `;
     let whatsAppUrl = `https://wa.me/967783479908?text=${encodeURIComponent(massege)}`;
     window.open(whatsAppUrl, "_blank");
+    for (let i = 0; i < cart.length; i++) {
+        localStorage.removeItem(`count${i}`);
+    }
     cart = [];
     localStorage.setItem("cart", JSON.stringify(cart));
     window.location.href = "thanksPage.html";

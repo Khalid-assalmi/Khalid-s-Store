@@ -16,12 +16,29 @@ if (addBtn) {
             pCode: products[i].pCode
         });
         localStorage.setItem("cart", JSON.stringify(cart));
-        for (let i = 0; i < cart.length; i++) {
-            if (cart[i].des == localStorage.getItem(`count${i}`)) {
-                localStorage.removeItem(`count${i}`);
-            }
+        let addToCartBox = document.createElement("div")
+        addToCartBox.classList.add("sureBox");
+        addToCartBox.innerHTML = `
+        <h3>تم إضافة المنتج إلى السلة بنجاح!</h3>
+        <div class="productInfoForSureBox">
+                <img src="${cart[i].img}" alt="${cart[i].des}">
+                <div class="productInfoForSureBoxText">
+                    <p class="productInfoForSureBoxPrice">${cart[i].price} &#xFDFC;</p>
+                    <p>${cart[i].des}</p>
+                </div>
+            </div>
+        <div class="sureBtns">
+            <button id="okBtn">حسناً</button>
+        </div>
+        `;
+        document.body.appendChild(addToCartBox);
+        document.getElementById("okBtn").onclick = () => {
+            addToCartBox.style.animationName = "hide";
+            setTimeout(() => {
+                addToCartBox.remove();
+                addToCartBox.style.animationName = "";
+            }, 300);
         }
-        alert("تم إضافة المتتج إلى السلة");
     });
 } else {
     let settingsBtn = document.getElementById("settingsBtn");
@@ -142,7 +159,7 @@ let sureBox = document.createElement("div");
 function subtract(index) {
     if (count[index] > 0) {
         if (count[index] === 1) {
-            sureBox.className = "sureBox";
+            sureBox.classList.add("sureBox");
             sureBox.innerHTML = `
             <h3>هل أنت متأكد من حذف هذا المنتج من السلة؟</h3>
             <div class="productInfoForSureBox">

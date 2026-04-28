@@ -41,8 +41,8 @@ input[type="search"] {
     outline: none;
     max-width: 180px;
     width: 49vw;
-    height: 4.5vh;
-    max-height: 45px;
+    height: 5vh;
+    max-height: 50px;
     box-sizing: border-box;
     padding: 0 12px 0 8px;
     font-size: 16px;
@@ -50,6 +50,7 @@ input[type="search"] {
     border-radius: 25px;
     z-index: 0;
     transition: 0.5s;
+    caret-color: #af941a;
 }
 .tools {
     display: flex;
@@ -64,10 +65,10 @@ input[type="search"] {
     background-color: var(--main);
     border: 2px solid var(--white);
     color: var(--white);
-    height: 4.5vh;
-    max-height: 45px;
-    width: 4.5vh;
-    max-width: 45px;
+    height: 5vh;
+    max-height: 50px;
+    width: 5vh;
+    max-width: 50px;
     border-radius: 50%;
     font-size: 10px;
     opacity: 0;
@@ -91,28 +92,6 @@ input[type="search"] {
 }
 #settingsBtnIcon:hover, #icon:hover {
     color: var(--settingsBtn-hover);
-}
-.signInBtn {
-    color: var(--white);
-    font-size: 15px;
-    background-color: var(--signInBtn-bg);
-    display: flex;
-    justify-content: center;
-    height: 5vh;
-    max-height: 32px;
-    align-items: center;
-    padding: 0 12px;
-    border-radius: 25px;
-    position: fixed;
-    left: 16px;
-    transition: 0.4s;
-    cursor: pointer;
-    border: none;
-}
-.signInBtn:hover {
-    background-color: var(--signInBtn-hover-bg);
-    border-radius: 8px;
-    box-shadow: 0 0 12px #000;
 }
 .container {
     background-color: var(--main);
@@ -238,15 +217,15 @@ b {
 }
 .notFoundMassege span, .loadingBox span {
     margin-top: 60px;
-    font-size: 23px;
+    font-size: 17px;
 }
 .loadingBox .circle {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    border: 2px solid var(--gray);
+    border: 3px solid var(--gray);
     border-top: 3px solid var(--main);
-    animation: rotate 0.5s linear infinite forwards;
+    animation: rotate 0.7s linear infinite forwards;
 }
 .imgBox {
     background-color: var(--emptyBox-color);
@@ -272,7 +251,7 @@ b {
     animation: appearSettingsBox 0.2s linear forwards;
     border-radius: 16px;
     width: 180px;
-    height: 220px;
+    height: 210px;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -17,16 +17,10 @@ if (addBtn) {
         });
         localStorage.setItem("cart", JSON.stringify(cart));
         let addToCartBox = document.createElement("div")
-        addToCartBox.classList.add("sureBox");
+        addToCartBox.remove();
+        addToCartBox.classList.add("addedBox");
         addToCartBox.innerHTML = `
         <h3>تم إضافة المنتج إلى السلة بنجاح!</h3>
-        <div class="productInfoForSureBox">
-                <img src="${cart[i].img}" alt="${cart[i].des}">
-                <div class="productInfoForSureBoxText">
-                    <p class="productInfoForSureBoxPrice">${cart[i].price} &#xFDFC;</p>
-                    <p>${cart[i].des}</p>
-                </div>
-            </div>
         <div class="sureBtns">
             <button id="okBtn">حسناً</button>
         </div>
@@ -126,7 +120,7 @@ function displayProductsInCart() {
                     <button onclick="subtract(${i})">-</button>
                 </div>
                 <div class="productInfo">
-                    <p>${cart[i].price}</span><span id="cionIcon">&#xFDFC;</span></p>
+                    <p>${cart[i].price}<span id="cionIcon">&#xFDFC;</span></p>
                     <h3>${cart[i].des}</h3>
                 </div>
             </div>

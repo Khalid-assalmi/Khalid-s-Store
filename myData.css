@@ -52,7 +52,7 @@ button {
     width: 72vw;
     max-width: 450px;
     border: 2px solid var(--gray);
-    padding: 4px 11px;
+    padding: 2px 11px;
     height: 5vh;
     max-height: 40px;
     align-items: center;
@@ -64,13 +64,13 @@ input, select {
     max-width: 450px;
     border: none;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
 }
 select {
-    width: 77.5vw;
+    width: 77vw;
     max-width: 475px;
     border: 2px solid var(--gray);
-    padding: 11px;
+    padding: 13px;
     border-radius: 7px;
     background-color: transparent;
 }

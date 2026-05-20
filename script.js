@@ -19,28 +19,37 @@ let paymentIcon = document.createElement("i");
 paymentIcon.className = "fa-regular fa-credit-card";
 let settingCard3 = document.createElement("a");
 settingCard3.className = "settingCard";
-let socailMedia = document.createElement("b");
-socailMedia.textContent = "وسائل التواصل الاجتماعي";
-settingCard3.id = "socialMediaCard";
-let socailMediaIcon = document.createElement("i");
-socailMediaIcon.className = "fa-brands fa-whatsapp";
-let settingCard4 = document.createElement("a");
-settingCard4.className = "settingCard";
-settingCard4.href = "myData.html";
+settingCard3.href = "myData.html";
+settingCard3.id = "myDataCard";
 let MyData = document.createElement("b");
 MyData.textContent = "بياناتي";
 let MyDataIcon = document.createElement("i");
 MyDataIcon.className = "fa-regular fa-user";
+let settingCard4 = document.createElement("a");
+settingCard4.className = "settingCard";
+let socailMedia = document.createElement("b");
+socailMedia.textContent = "وسائل التواصل الاجتماعي";
+settingCard4.id = "socialMediaCard";
+let socailMediaIcon = document.createElement("i");
+socailMediaIcon.className = "fa-brands fa-whatsapp";
+let settingCard5 = document.createElement("a");
+settingCard5.className = "settingCard";
+settingCard5.onclick = removeAllDatas;
+let datas = document.createElement("b");
+datas.textContent = "حذف سجل البيانات";
+let datasIcon = document.createElement("i");
+datasIcon.className = "fa fa-database";
 let turn = false;
 if (settingsBtn) {
     settingsBtn.addEventListener("click", (e) => {
         if (!turn) {
             settingsBtn.appendChild(div);
-            div.append(settingCard, settingCard2, settingCard3, settingCard4);
+            div.append(settingCard, settingCard2, settingCard3, settingCard4, settingCard5);
             settingCard.append(conditions, conditionsIcon);
             settingCard2.append(payment, paymentIcon);
-            settingCard3.append(socailMedia, socailMediaIcon);
-            settingCard4.append(MyData, MyDataIcon);
+            settingCard3.append(MyData, MyDataIcon);
+            settingCard4.append(socailMedia, socailMediaIcon);
+            settingCard5.append(datas, datasIcon);
             e.stopPropagation();
             turn = true;
         } else {
@@ -101,6 +110,9 @@ if (settingsBtn) {
 let products = JSON.parse(localStorage.getItem("products")) || [];
 let searchContianer = document.querySelector(".searchContianer");
 let timer = null;
+function removeAllDatas() {
+
+}
 function search() {
     if (products.length > 0) {
         searchContianer.innerHTML = `

@@ -7,13 +7,11 @@
     --addBtn-hover-bg: rgb(255, 20, 20);
     --white: #fff;
 }
-* {
-    font-weight: 600;
-    cursor: default;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
 body {
     background-color: var(--white);
+}
+* {
+    font-weight: 600;
 }
 .back i {
     position: fixed;
@@ -61,17 +59,31 @@ body {
 #text {
     margin-bottom: 8px;
 }
+#goToCart {
+    background-color: #e8bf09;
+    color: #111;
+    border: 1px solid;
+    width: 90px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+#goToCart:hover {
+    background-color: #f8cd0c;
+}
 #addToCart {
     background-color: var(--addBtn-bg);
     color: var(--white);
     border: none;
-    border-radius: 8px;
     cursor: pointer;
     font-size: 17px;
     transition: 0.3s;
 }
 #addToCart:hover {
     background-color: var(--addBtn-hover-bg);
+}
+.cartBtns {
+    display: flex;
+    justify-content: space-between;
 }
 .productsContainerInCart {
     position: fixed;
@@ -106,7 +118,7 @@ body {
     min-height: 130px;
     box-sizing: border-box;
     background-color: var(--white);
-    border: 2px solid var(--emptyBox-color);
+    border: 1px solid var(--emptyBox-color);
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -223,10 +235,6 @@ body {
         border-bottom-left-radius: 10px;
         box-shadow: 0 1px 8px #000;
     }
-    .productImage img {
-        border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-    }
     .price {
         position: absolute;
         top: 70%;
@@ -256,14 +264,17 @@ body {
         font-size: 17px;
     }
     #addToCart {
-        position: fixed;
-        bottom: 18px;
-        left: 18px;
         padding: 14px 14px;
         border-radius: 50%;
     }
     .addToCartText {
         display: none;
+    }
+    .cartBtns {
+        position: fixed;
+        bottom: 18px;
+        left: 18px;
+        right: 18px;
     }
 }
 @media (min-width: 681px) {
@@ -324,9 +335,6 @@ body {
         font-size: 17px;
     }
     #addToCart {
-        position: fixed;
-        bottom: 24px;
-        left: 50px;
         padding: 14px 32px;
         border-radius: 24px;
     }
@@ -334,6 +342,29 @@ body {
         display: inline;
         margin-left: 14px;
     }
+    .cartBtns {
+        position: fixed;
+        bottom: 24px;
+        left: 50px;
+        right: 50px;
+    }
+}
+.addedBox {
+    position: fixed;
+    top: 30vh;
+    width: 80vw;
+    height: 17vh;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 10px var(--main);
+    justify-self: center;
+    border-radius: 25px;
+    border: 2px solid #dab514;
+    animation: appear 0.2s linear forwards;
+    padding: 12px 18px;
+    max-width: 600px;
+    max-height: 110px;
 }
 .sureBox {
     position: fixed;

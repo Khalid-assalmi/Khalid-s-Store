@@ -4,36 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#111">
-    <title>Khalid's Store</title>
+    <title>Khalid's Store / My Orders</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/all.min.css">
-    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="orders_style.min.css">
 </head>
 <body dir="rtl">
     <div class="top">
         <div class="tools">
             <a id="settingsBtn"><i class="fa-solid fa-cog" id="settingsBtnIcon"></i></a>
-            <input type="search" id="searchInput" placeholder="البحث في المنتجات ...">
-            <button id="searchButton"><i class="fa-solid fa-search"></i></button>
         </div>
     </div>
-    <div class="container">
-        <div class="text">
-            <h1>مرحباً بك في</h1>
-            <h1 id="yellowColor">Khalid's Store</h1>
-        </div>
-    </div>
-    <section id="products">
-        <div class="productsContianer"></div>
-        <div class="searchContianer"></div>
-    </section>
+    <div class="ordersContainer"></div>
     <nav>
-        <a href="index.html" title="الرئيسية"><b><i class="fa-solid fa-home" id="focus"></i><span id="focus" class="hiddenText">الرئيسية</span></b></a>
+        <a href="index.html" title="الرئيسية"><b><i class="fa-solid fa-home"></i><span class="hiddenText">الرئيسية</span></b></a>
         <a href="ShoppingCart.html" title="السلة"><b><i class="fa-solid fa-shopping-cart"></i><span class="hiddenText">السلة</span></b></a>
-        <a href="orders.html" title="طلباتي"><b><i class="fa-solid fa-truck-fast"></i><span class="hiddenText">طلباتي</span></b></a>
+        <a href="orders.html" title="طلباتي"><b><i class="fa-solid fa-truck-fast" id="focus"></i><span id="focus" class="hiddenText">طلباتي</span></b></a>
         <a href="me.html" title="أنا"><b><i class="fa-solid fa-user"></i><span class="hiddenText">أنا</span></b></a>
     </nav>
     <script src="script.js"></script>
+    <script src="payment.js"></script>
+    <script src="orders.js"></script>
 </body>
 </html>

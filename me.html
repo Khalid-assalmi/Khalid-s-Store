@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khalid's Store/me</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="datas.style.css">
     <link rel="stylesheet" href="me.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
 </head>
 <body dir="rtl">
     <div class="top">
@@ -19,22 +21,26 @@
             <a href="ShoppingCart.html"><i id="icon" class="fa fa-shopping-cart"></i></a>
         </div>
     </div>
-    <div class="myOrdersContainer">لاشيء</div>
+    <div class="myPurchasesContainer"></div>
     <h3
     style="
     position: relative;
-    z-index: -1;"
+    z-index: -1;
+    justify-self: flex-start;
+    "
     >
     - منتجات قد تعجبك:
     </h3>
     <div class="productsContianer" id="productsContianerInMeSection"></div>
     <nav>
         <a href="index.html" title="الرئيسية"><b><i class="fa fa-home"></i><span  class="hiddenText">الرئيسية</span></b></a>
-        <a href="#" title="العروض"><b><i class="fa fa-tag" style="rotate: 270deg;"></i><span class="hiddenText">العروض</span></b></a>
         <a href="ShoppingCart.html" title="السلة"><b><i class="fa fa-shopping-cart"></i><span class="hiddenText">السلة</span></b></a>
+        <a href="orders.html" title="طلباتي"><b><i class="fa-solid fa-truck-fast"></i><span class="hiddenText">طلباتي</span></b></a>
         <a href="me.html" title="أنا"><b><i class="fa fa-user" id="focus"></i><span id="focus" class="hiddenText">أنا</span></b></a>
     </nav>
     <script src="script.js"></script>
     <script src="myData.js"></script>
+    <script src="payment.js"></script>
+    <script src="orders.js"></script>
 </body>
 </html>

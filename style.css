@@ -217,11 +217,11 @@ b {
 }
 .notFoundMassege span, .loadingBox span {
     margin-top: 60px;
-    font-size: 17px;
+    font-size: 19px;
 }
 .loadingBox .circle {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     border: 3px solid var(--gray);
     border-top: 3px solid var(--main);
@@ -251,7 +251,7 @@ b {
     animation: appearSettingsBox 0.2s linear forwards;
     border-radius: 16px;
     width: 180px;
-    height: 210px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -281,6 +281,9 @@ b {
     border-bottom: 2px solid;
 }
 #socialMediaCard {
+    border-bottom: 2px solid;
+}
+#myDataCard {
     border-bottom: 2px solid;
 }
 .settingCard:hover {
@@ -393,10 +396,9 @@ b {
         gap: 16vw;
     }
     .productCard {
-        width: 90vw;
+        width: 96vw;
         height: 200px;
-        box-shadow: 0 0 6px #000;
-        border-radius: 16px;
+        border-bottom: 2px solid #dfdfdf;
     }
     .productsContianer, .searchContianer {
         flex-direction: column;

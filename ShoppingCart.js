@@ -35,57 +35,6 @@ if (addBtn) {
         }
     });
 } else {
-    let settingsBtn = document.getElementById("settingsBtn");
-    let searchInp = document.getElementById("searchInput");
-    let searchBtn = document.getElementById("searchButton");
-    let div = document.createElement("div");
-    div.className = "settingsBox";
-    let settingCard = document.createElement("div");
-    settingCard.className = "settingCard";
-    let conditions = document.createElement("a");
-    conditions.textContent = "الشروط والأحكام";
-    let conditionsIcon = document.createElement("i");
-    conditionsIcon.className = "fa-solid fa-circle-info";
-    let settingCard2 = document.createElement("div");
-    settingCard2.className = "settingCard";
-    let payment = document.createElement("a");
-    payment.textContent = "الدفع و الاستلام"
-    settingCard2.id = "paymentCard";
-    let paymentIcon = document.createElement("i");
-    paymentIcon.className = "fa-regular fa-credit-card";
-    let settingCard3 = document.createElement("div");
-    settingCard3.className = "settingCard";
-    let socailMedia = document.createElement("a");
-    socailMedia.textContent = "وسائل التواصل الاجتماعي";
-    let socailMediaIcon = document.createElement("i");
-    socailMediaIcon.className = "fa-brands fa-whatsapp";
-    let turn = false;
-    if (searchInp) {
-        settingsBtn.addEventListener("click", (e) => {
-            if (!turn) {
-                settingsBtn.appendChild(div);
-                div.append(settingCard, settingCard2, settingCard3);
-                settingCard.append(conditions, conditionsIcon);
-                settingCard2.append(payment, paymentIcon);
-                settingCard3.append(socailMedia, socailMediaIcon);
-                e.stopPropagation();
-                turn = true;
-            } else {
-                turn = false;
-            }
-        });
-        div.addEventListener("click", (e) => {
-            e.stopPropagation();
-        });
-        document.addEventListener("click", () => {
-            div.style.animationName = "hideSettingsBox";
-            setTimeout(() => {
-                div.style.animationName = "";
-                div.remove();
-            }, 40);
-                turn = false;
-        });
-    }
     displayProductsInCart();
     if (cart == "") {
         totalClass.style.display = "none";
@@ -105,7 +54,7 @@ function displayProductsInCart() {
     if(cart.length === 0) {
         productsContianerInCart.innerHTML = `
         <div class="empty">
-            <i class="fa-solid fa-basket-shopping"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
             <h3>لا توجد منتجات في السلة</h3>
         </div>
         `;

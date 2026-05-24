@@ -63,7 +63,7 @@ function confirmPayment() {
     `;
     document.body.appendChild(peymentCheckBox);
 }
-function sendOrder() {
+function sendMassege() {
     let order = "";
     for (let i = 0; i < cart.length; i++) {
         order += `
@@ -91,9 +91,33 @@ function sendOrder() {
 
     ----------------- نهاية الطلب -----------------
     `;
-    let whatsAppUrl = `https://wa.me/967783479908?text=${encodeURIComponent(massege)}`;
+    return massege;
+}
+function sendOrder() {
+    let whatsAppUrl = `https://wa.me/967783479908?text=${encodeURIComponent(sendMassege())}`;
     window.open(whatsAppUrl, "_blank");
 
+    cancelPeyment();
+    let sureBox = document.createElement("div");
+    sureBox.classList.add("sureContainer");
+    sureBox.innerHTML = `
+        <h3 id="questionForPayment">هل قمت بإرسال الطلب عبر واتساب؟</h3>
+        <p>بحالة تعذر إرسال الطلب ، أو عدم إرساله نهائياً ، أو حتى عدم تحويلك لواتساب قم بالضغط على زر "إعادة إرسال الطلب" الموجود أدناه.</p>
+        <p>ملاحظة: بحالة عدم إرسال الطلب عبر واتساب فإنه لن تتم معالجة طلبك نهائياً.</p>
+        <div class="Btns">
+            <button id="sendOrderAgain">أعد إرسال الطلب</button>
+            <button onclick="confirmOrder()">نعم، أكملت الإرسال</button>
+        </div>
+    `;
+    document.body.appendChild(sureBox);
+    if (document.getElementById("sendOrderAgain")) {
+        document.getElementById("sendOrderAgain").onclick = () => {
+            sureBox.remove();
+            sendOrder();
+        }
+    }
+}
+function confirmOrder() {
     let now = new Date();
 
     let year = now.getFullYear();
@@ -101,14 +125,9 @@ function sendOrder() {
     let day = now.getDate();
     let today = `${day} / ${month} / ${year}`;
 
-    let hour = now.getHours();
-    let minutes = now.getMinutes();
-
     for (let i = 0; i < cart.length; i++) {
         orders.push({
             date: today,
-            hour: hour,
-            minutes: minutes,
             info: [
                 {
                     img: cart[i].img,
@@ -119,6 +138,7 @@ function sendOrder() {
                 }
             ]
         });
+        localStorage.removeItem(`count${i}`)
     }
     localStorage.setItem("orders", JSON.stringify(orders));
     cart = [];
@@ -130,31 +150,24 @@ function displayPurchases() {
     if (purchases.length > 0) {
         myPurchasesContainer.innerHTML = "<h3><b>- مشترياتي:</b></div>";
         for (let index = 0; index < purchases.length; index++) {
-            for (let i = 0; i < purchases[index].info.length; i++) {
-                myPurchasesContainer.innerHTML += `
-                <div class="productInPurchasesCard" onclick="productPageInPurchases(${index}, ${i})">
-                    <div class="productImg"><img src="${purchases[index].info[i].img}"></div>
-                    <div class="count">
-                        <span>&nbsp;&nbsp;&nbsp; ${purchases[index].info[i].count} &nbsp;&nbsp;&nbsp;</span>
-                    </div>
-                        <div class="productInfo">
-                        <p>${purchases[index].info[i].price}<span id="cionIcon">&#xFDFC;</span></p>
-                        <h3>${purchases[index].info[i].des}</h3>
-                        <h6> تاريخ الطلب: ${purchases[index].date}</h6>
-                    </div>
+            myPurchasesContainer.innerHTML += `
+            <div class="productInPurchasesCard" onclick="productPageInPurchases(${index})">
+                <div class="productImg"><img src="${purchases[index].info[0].img}"></div>
+                <div class="count">
+                    <span>&nbsp;&nbsp;&nbsp; ${purchases[index].info[0].count} &nbsp;&nbsp;&nbsp;</span>
                 </div>
-             `
-            }
+                    <div class="productInfo">
+                    <h3>${purchases[index].info[0].price}<span id="cionIcon">&#xFDFC;</span></h3>
+                    <p>${purchases[index].info[0].des}</p>
+                    <h6> تاريخ الطلب: ${purchases[index].date}</h6>
+                </div>
+            </div>
+            `;
         }
-    } else {
-        myPurchasesContainer.innerHTML = `
-        <i class="fa-solid fa-bag-shopping"></i>
-        <h3 class="noOrders">لا توجد مشتريات سابقة</h3>
-        `;
     }
 }
-function productPageInPurchases(index, i) {
-    let productDes = purchases[index].info[i].des;
+function productPageInPurchases(index) {
+    let productDes = purchases[index].info[0].des;
     for (let i = 0; i < products.length; i++) {
         if (products[i].des == productDes) {
             sessionStorage.setItem("index", i);

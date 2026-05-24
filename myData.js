@@ -6,6 +6,17 @@ let addressInput = document.getElementById("addressInput");
 let saveButton = document.getElementById("saveBtn");
 let deleteButton = document.getElementById("deleteBtn");
 let nextButton = document.getElementById("nextAfterEnterData");
+let alertBox = document.createElement("div");
+alertBox.classList.add("alertBox");
+function showAlert(message) {
+    alertBox.innerHTML = `
+        <h3>${message}</h3>
+        <div class="sureBtns">
+            <button onclick="alertBox.remove()">حسناً</button>
+        </div>
+    `;
+    document.body.appendChild(alertBox);
+}
 if (saveButton) {
     saveButton.addEventListener("click", () => {
         info = [];
@@ -20,9 +31,9 @@ if (saveButton) {
             address: address
         };
         if (name === "" || email === "" || phone === "") {
-            alert("Please fill in all fields.");
+            showAlert("الرجاء تعبئة جميع الحقول المطلوبة!");
         } else {
-            alert("Information saved successfully!");
+            showAlert("تم حفظ جميع البيانات بنجاح!");
             info.push(userInfo);
             localStorage.setItem("info", JSON.stringify(info));
         }

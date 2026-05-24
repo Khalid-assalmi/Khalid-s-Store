@@ -6,12 +6,14 @@ let div = document.createElement("div");
 div.className = "settingsBox";
 let settingCard = document.createElement("a");
 settingCard.className = "settingCard";
+settingCard.href = "conditions.html";
 let conditions = document.createElement("b");
 conditions.textContent = "الشروط والأحكام";
 let conditionsIcon = document.createElement("i");
 conditionsIcon.className = "fa-solid fa-circle-info";
 let settingCard2 = document.createElement("a");
 settingCard2.className = "settingCard";
+settingCard2.href = "paymentInfo.html";
 let payment = document.createElement("b");
 payment.textContent = "الدفع و الاستلام"
 settingCard2.id = "paymentCard";
@@ -34,7 +36,6 @@ let socailMediaIcon = document.createElement("i");
 socailMediaIcon.className = "fa-brands fa-whatsapp";
 let settingCard5 = document.createElement("a");
 settingCard5.className = "settingCard";
-settingCard5.onclick = removeAllDatas;
 let datas = document.createElement("b");
 datas.textContent = "حذف سجل البيانات";
 let datasIcon = document.createElement("i");
@@ -110,9 +111,29 @@ if (settingsBtn) {
 let products = JSON.parse(localStorage.getItem("products")) || [];
 let searchContianer = document.querySelector(".searchContianer");
 let timer = null;
-function removeAllDatas() {
-
+let confirmation = document.createElement("div");
+confirmation.className = "confirmation";
+confirmation.innerHTML = `
+    <h3>هل أنت متأكد من حذف جميع بياناتك؟</h3>
+    <p>يشمل ذالك جميع معلوماتك الشخصية التي شاركتها معنا ، و بياناتك في السلة ، وبياناتك في قسم الطلبات , وبياناتك في قسم المشتريات وغيرها من البيانات.</p>
+    <div class="buttons">
+        <button onclick="cancelRemoveAllDatas()" id="noBtn">لا</button>
+        <button onclick="removeAllDatas()">نعم</button>
+    </div>
+`;
+function cancelRemoveAllDatas() {
+    confirmation.remove();
 }
+function removeAllDatas() {
+    localStorage.clear();
+    sessionStorage.clear();
+    confirmation.remove();
+    alert("تم حذف جميع بياناتك بنجاح");
+    location.reload();
+}
+settingCard5.onclick = () => {
+    document.body.appendChild(confirmation);
+};
 function search() {
     if (products.length > 0) {
         searchContianer.innerHTML = `
@@ -159,12 +180,15 @@ function displayProducts() {
     fetch("products.json")
         .then(response => response.json())
         .then((data) => {
-            for (let i = 0; i < data.length; i++) {
+            for (let i = 0; i < data.length*2; i++) {
+                let array = new Uint32Array(1);
+                window.crypto.getRandomValues(array);
+                let index = array[0] % data.length;
                 productsContianer.innerHTML += `
-                <div class="productCard" onclick="productPage(${i})">
-                    <div class="imgBox"><img src="${data[i].img}"></div>
-                    <div class="priceBox"><span>${data[i].price}</span><span id="cionIcon">&#xFDFC;</span></div>
-                    <div class="descriptionBox">${data[i].des}</div>
+                <div class="productCard" onclick="productPage(${index})">
+                    <div class="imgBox"><img src="${data[index].img}"></div>
+                    <div class="priceBox"><span>${data[index].price}</span><span id="cionIcon">&#xFDFC;</span></div>
+                    <div class="descriptionBox">${data[index].des}</div>
                 </div>
                 `;
             }

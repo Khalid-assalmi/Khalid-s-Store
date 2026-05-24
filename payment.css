@@ -56,11 +56,11 @@
 .buttons button:hover {
     background-color: var(--addBtn-hover-bg);
 }
-#cancelPeyment {
+#cancelPeyment, #sendOrderAgain {
     background-color: rgba( 0, 0, 0, 0.1);
     color: #222;
 }
-#cancelPeyment:hover {
+#cancelPeyment:hover, #sendOrderAgain:hover {
     border: 1px solid #222;
 }
 .total.totalClassInPaymentPage {

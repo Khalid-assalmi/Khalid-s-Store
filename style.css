@@ -7,8 +7,6 @@
     --settingsBtn-hover: #af941a;
     --emptyBox-color: #b9b9b9;
     --settingCard-hover: #f0f0f0;
-    --signInBtn-bg: rgb(235, 11, 11);
-    --signInBtn-hover-bg: rgb(255, 20, 20);
 }
 * {
     font-weight: 600;
@@ -291,6 +289,47 @@ b {
 }
 .settingCard i {
     color: var(--main)
+}
+.confirmation {
+    position: fixed;
+    top: 40vh;
+    justify-self: center;
+    background-color: var(--white);
+    width: 80vw;
+    height: 40vh;
+    max-width: 420px;
+    max-height: 220px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 0 12px #222;
+}
+.confirmation .buttons {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    display: flex;
+    gap: 8px;
+}
+.confirmation button {
+    background-color: rgb(38, 96, 223);
+    border: none;
+    color: var(--white);
+    padding: 8px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+#noBtn {
+    background-color: #cccccc;
+    color: #222;
+}
+.confirmation button:hover {
+    border: 1px solid #222;
 }
 @keyframes appear {
     from {

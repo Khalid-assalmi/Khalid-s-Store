@@ -292,11 +292,11 @@ b {
 }
 .confirmation {
     position: fixed;
-    top: 40vh;
+    top: 32vh;
     justify-self: center;
     background-color: var(--white);
-    width: 80vw;
-    height: 40vh;
+    width: 86vw;
+    height: 45vh;
     max-width: 420px;
     max-height: 220px;
     padding: 20px;
@@ -307,6 +307,9 @@ b {
     justify-content: flex-start;
     align-items: center;
     box-shadow: 0 0 12px #222;
+}
+.confirmation p {
+    font-size: 15px;
 }
 .confirmation .buttons {
     position: absolute;

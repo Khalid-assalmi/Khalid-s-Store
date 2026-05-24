@@ -267,7 +267,7 @@ body {
         font-size: 17px;
     }
     #addToCart {
-        width: 78%;
+        width: 77%;
         border-radius: 24px;
         height: 48px;
     }
@@ -349,8 +349,8 @@ body {
 .addedBox, .alertBox {
     position: fixed;
     top: 38vh;
-    width: 70vw;
-    height: 20vh;
+    width: 74vw;
+    height: 22vh;
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -450,7 +450,7 @@ body {
     margin-bottom: 50px;
 }
 .sureContainer {
-    height: 60vh;
+    height: 70vh;
     max-height: 230px;
     max-width: none;
     padding-bottom: 10%;

@@ -7,7 +7,8 @@
     border: 1px solid var(--emptyBox-color);
     border-radius: 16px;
     height: 66vh;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
     z-index: 1;
     gap: 18px;
@@ -16,7 +17,7 @@
     align-self: flex-start;
 }
 .productInOrdersCard {
-    width: 90vw;
+    width: 91.4vw;
     max-height: 140px;
     display: flex;
     gap: 12px;
@@ -34,10 +35,11 @@
     gap: 5px;
 }
 .productInOrdersCard p {
-    width: 63vw;
+    width: 62vw;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 14px;
 }
 .productInOrdersCard button {
     position: absolute;
@@ -46,7 +48,7 @@
     color: #fff;
     background-color: #d1ab04;
     border: none;
-    padding: 6px 11px;
+    padding: 4px 8px;
     border-radius: 16px;
 }
 .productInOrdersCard button:hover {

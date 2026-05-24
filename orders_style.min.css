@@ -17,7 +17,7 @@
     align-self: flex-start;
 }
 .productInOrdersCard {
-    width: 91.4vw;
+    width: 92.4vw;
     max-height: 140px;
     display: flex;
     gap: 12px;
@@ -48,7 +48,7 @@
     color: #fff;
     background-color: #d1ab04;
     border: none;
-    padding: 4px 8px;
+    padding: 2px 6px;
     border-radius: 16px;
 }
 .productInOrdersCard button:hover {

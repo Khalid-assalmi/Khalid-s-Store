@@ -363,7 +363,7 @@ body {
     max-width: 600px;
     max-height: 110px;
 }
-.sureContainer, .sureBox {
+.sureBox {
     position: fixed;
     top: 30vh;
     width: 80vw;
@@ -450,10 +450,24 @@ body {
     margin-bottom: 50px;
 }
 .sureContainer {
-    height: 80vh;
-    max-height: 230px;
-    max-width: none;
-    padding-bottom: 10%;
+    margin-top: 25vh;
+    background-color: #fff;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    box-shadow: 0 0 10px var(--main);
+    justify-self: center;
+    border-radius: 25px;
+    border: 2px solid #dab514;
+    animation: appear 0.2s linear forwards;
+    padding: 12px 18px;
+    height: 40vh;
+    max-height: 400px;
+    max-width: 400px;
+    padding-bottom: 60px;
 }
 .sureContainer h3, .sureContainer p {
     position: static !important;

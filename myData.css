@@ -101,4 +101,8 @@ input:focus, select:focus {
     flex-direction: column;
     gap: 12px;
     font-weight: 600;
+    padding: 12px;
+}
+.conditions p, .paymentInfo p {
+    font-size: 14px;
 }

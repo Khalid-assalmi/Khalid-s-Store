@@ -296,9 +296,9 @@ b {
     justify-self: center;
     background-color: var(--white);
     width: 86vw;
-    height: 55vh;
+    height: 35vh;
     max-width: 420px;
-    max-height: 220px;
+    max-height: 300px;
     padding: 20px;
     box-sizing: border-box;
     border-radius: 12px;
@@ -309,7 +309,7 @@ b {
     box-shadow: 0 0 12px #222;
 }
 .confirmation p {
-    font-size: 15px;
+    font-size: 14px;
 }
 .confirmation .buttons {
     position: absolute;
@@ -328,7 +328,7 @@ b {
     box-sizing: border-box;
 }
 #noBtn {
-    background-color: #cccccc;
+    background-color: #e7e7e7;
     color: #222;
 }
 .confirmation button:hover {
